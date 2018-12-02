@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>跑腿员</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			.title {
+				margin: 150px 50px 150px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			input {
+				color: #000;
+			}
+			.mui-table-view-cell{
+				background-color: #333;
+			}
+			.mui-tab-label {
+				margin: 0,auto;
+			}
+			.money{
+				font-size: 30px; 
+				color: red;
+			}
+			.mui-btn{
+				height: 35px;
+				
+			}
+			.mui-btn-block{
+				padding-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 主界面不动、菜单移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+		  <!-- 菜单容器 -->
+		  <aside class="mui-off-canvas-left" id="offCanvasSide">
+		    <div class="mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 菜单具体展示内容 -->
+		        <div style="margin-top: 50px;">
+		        <div style="margin-left: 20px; margin-top: 50px; display: inline;">
+		        <img src="images/user-photo.png" width="75px"  height="75px"/>
+		        </div>
+		        <span class="title">王泽华</span>
+		        </div>
+		        <ul class="mui-table-view" style="margin-top: 150px;">
+		                <li class="mui-table-view-cell">
+		                    <a class="mui-navigate-right" id="account">
+		                        我的钱包
+		                    </a>
+		                </li>
+		                </li>
+		                <li class="mui-table-view-cell">
+		                    <a class="mui-navigate-right" id="config">
+		                         个人中心
+		                    </a>
+		                </li>
+		                
+		            </ul>
+		            <button type="button" class="mui-btn mui-btn-red mui-btn-block" id="quit">退出登录</button>
+		        
+		      </div>
+		    </div>
+		  </aside>
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap" ">
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
+		      <h1 class="mui-title">跑腿员</h1>
+		    </header>
+		    <nav class="mui-bar mui-bar-tab">
+			    <a class="mui-tab-item mui-active" id="jiedan">
+			        <span class="mui-icon mui-icon-list"></span>
+			        <span class="mui-tab-label">接单设置</span>
+			    </a>
+			    <a class="mui-tab-item" style="text-align: center;" id="shougong">
+			        <span class="mui-icon mui-icon-minus"></span>
+			        <span class="mui-tab-label">收工</span>
+			    </a>
+			    <a class="mui-tab-item" id="mission">
+			        <span class=" mui-icon mui-icon-compose"></span>
+			        <span class="mui-tab-label">我的任务</span>
+			    </a>
+			  
+			</nav>
+		    <div class="mui-content mui-scroll-wrapper" id="maincontent">
+		      <div class="mui-scroll" id="maincontent2">
+		        <!-- 主界面具体展示内容 -->
+
+					<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥20</span> <span>帮送</span> 	<span>30分钟内完成</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：杭州电子科技大学</li>
+										<span>浙江省杭州市下沙江滨</span> <span>652m</span>
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：杭电信工</li>
+										<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div>
+							</div>
+							
+							<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥20</span> <span>帮送</span> 	<span>30分钟内完成</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：杭州电子科技大学</li>
+										<span>浙江省杭州市下沙江滨</span> <span>652m</span>
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：杭电信工</li>
+										<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div>
+							</div>
+							
+							<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥20</span> <span>帮送</span> 	<span>30分钟内完成</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：杭州电子科技大学</li>
+										<span>浙江省杭州市下沙江滨</span> <span>652m</span>
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：杭电信工</li>
+										<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div>
+							</div>
+							
+							<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥20</span> <span>帮送</span> 	<span>30分钟内完成</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：杭州电子科技大学</li>
+										<span>浙江省杭州市下沙江滨</span> <span>652m</span>
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：杭电信工</li>
+										<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div>
+							</div>
+							<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥20</span> <span>帮送</span> 	<span>30分钟内完成</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：杭州电子科技大学</li>
+										<span>浙江省杭州市下沙江滨</span> <span>652m</span>
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：杭电信工</li>
+										<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div>
+							</div>
+							
+							<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥20</span> <span>帮送</span> 	<span>30分钟内完成</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：杭州电子科技大学</li>
+										<span>浙江省杭州市下沙江滨</span> <span>652m</span>
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：杭电信工</li>
+										<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div>
+							</div>
+							
+
+		    <div class="mui-off-canvas-backdrop"></div>
+		  </div>
+		</div>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script>
+			sessionStorage.setItem("collectorid",20001);
+			mui.init({
+				
+				preloadPages:[{
+   				 	id:'detail.html',
+    				url:'detail.html'           
+					}],
+				pullRefresh : {
+    				container:"#maincontent",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+    				down : {
+      				style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+      				color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+      				height:'50px',//可选,默认50px.下拉刷新控件的高度,
+      				range:'100px', //可选 默认100px,控件可下拉拖拽的范围
+      				offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
+      				auto: true,//可选,默认false.首次加载自动上拉刷新一次
+     				callback :pullfresh1 //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+    }
+  }
+			});
+			var detailPage = null;
+			mui.plusReady(function(){
+     		console.log("当前页面URL："+plus.webview.currentWebview().getURL());
+			 if(!detailPage){
+    		detailPage = plus.webview.getWebviewById('detail.html');
+  		};
+			 setTimeout(function(){
+			var array = plus.webview.all();
+			if(array){
+				for(var i=0,len=array.length;i<len;i++){
+			    	console.log(array[i].getURL());
+		        }
+			}
+		},5000)
+			});
+			//收工绑定监听
+//			document.getElementById('shougong').addEventListener('tap',function(){
+//		
+//			});
+			//我的钱包绑定监听
+			document.getElementById('account').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'account.html',
+    					url:'account.html'
+					})	
+					
+				}
+				
+			});
+			//退出绑定监听
+			document.getElementById('quit').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'person.html',
+    					url:'person.html'
+					})	
+					
+				}
+				
+			});
+			//个人设置绑定监听
+			document.getElementById('config').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'config.html',
+    					url:'config.html'
+					})	
+					
+				}
+				
+			});
+			//接单设置绑定监听
+			document.getElementById('jiedan').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'jiedanshezhi.html',
+    					url:'jiedanshezhi.html'
+					})	
+					
+				}
+				
+			});
+			//我的任务绑定监听
+			document.getElementById('mission').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'mymission.html',
+    					url:'mymission.html'
+					})	
+					
+				}
+				
+			});
+			function pullfresh1() {
+
+					mui('#maincontent').pullRefresh().endPullupToRefresh(true); 
+					$.ajax({
+						type:"get",
+						url:"http://localhost:8040/micro-provider-business/business/request",
+						async:true,
+						dataType: "json",//预期服务器返回的数据类型
+						data:{},
+						success: function(result){
+							$('#maincontent2').empty();	
+							$('#maincontent2').next().remove();	
+							$.each(result, function(index, item){
+								var con = "";
+								con +='<div class="mui-card" id="'+item.id+'">'
+								con	+='<div class="mui-card-header"><span class="money">¥20</span> <span>'+item.type+'</span> 	<span>需要完成时间：'+item.time+'</span></div>'
+								con	+='<div class="mui-card-content"><div class="mui-card-content-inner">'
+								con	+='<ul><li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：'+item.positionCreate+'</li>'
+								con	+='<span>浙江省杭州市下沙江滨</span> <span>652m</span>'
+								con	+='<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：'+item.positionFinish+'</li>'
+							    con	+='<span>浙江省杭州市临安市胜联路168号</span> <span>554m</span>'
+								con += '</ul></div></div><div class="mui-card-footer">'
+								con	+='<button type="button" class="mui-btn mui-btn-blue mui-btn-block">接单</button></div></div>'
+								$('#maincontent2').append(con);
+							});
+								
+								
+						},
+						error: function(){
+							mui.toast('服务器响应异常！');
+						}
+							
+					});
+					
+			}
+			//接单绑定监听
+			mui(".mui-content").on('tap','.mui-btn',function(){
+				var id = $(this).parent().attr('id');
+				var collector_id =20001;
+				
+				$.ajax({
+					type:"get",
+					url:"http://localhost:8040/mirco-comsumer-peisongyuan/peisong/jiedan/20001/"+id+"",
+					async:true,
+					success:function(result){
+						$(this).hide();
+						
+					},
+					error:function(){
+							mui.toast("服务器出错！");
+						}
+				});
+				
+			});
+			
+			
+			if (!mui.os.plus) {
+			//准备开始写ajax事件
+			mui(".mui-content").on('tap','.mui-card-content',function(){
+			 var id = $(this).parent().attr('id'); //this.getAttribute("id");
+			 sessionStorage.setItem("id",id);
+			
+ 			 mui.openWindow({
+   			 id:'detail.html',
+    		url:'detail.html'
+  			});
+			}) ;
+			};
+			mui('.mui-scroll-wrapper').scroll({
+					indicators: true //是否显示滚动条
+			});
+			 
+		</script>
+	</body>
+</html>

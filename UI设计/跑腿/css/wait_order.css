@@ -1,0 +1,150 @@
+	*{
+		margin:0;
+		padding:0;
+	}
+	a{
+		text-decoration: none;
+	}
+	
+	/*订单*/
+	#wait_top{
+		position: relative;
+		width: 100%;
+		height: 55px;
+		background-color: #F1F2F8;
+		border-bottom: 1px solid #DBDDE5;
+	}
+	#wait_top .top_left{
+		position: absolute;
+		top: 18px;
+		left: 50px;
+	}
+	#wait_top .top_right .top_right_1{
+		position: absolute;
+		top: 9px;
+		left: 100px;
+		width: 80px;
+		height: 40px;
+		color: white;
+		text-align: center;
+		line-height: 40px;
+		background-color: #354053;
+	}
+	#wait_top .top_right .top_right_2{
+		position: absolute;
+		top: 9px;
+		left: 180px;
+		width: 80px;
+		height: 40px;
+		color: black;
+		text-align: center;
+		line-height: 40px;
+		background-color: white;
+	}
+	
+	.background{
+		width: 100%;
+		height: 5px;
+		background-color: white;
+	}
+
+	/*筛选框*/
+	#brush{
+		position: relative;
+		width: 100%;
+		height: 140px;
+		background-color: #F1F2F8;
+		border-bottom: 1px solid #DBDDE5;
+	}
+	.brush_1{
+		position: absolute;
+		top: 8px;
+		left: 50px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_2{
+		position: absolute;
+		top: 8px;
+		left: 300px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_3{
+		position: absolute;
+		top: 8px;
+		left: 550px;
+		width: 350px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_4{
+		position: absolute;
+		top: 72px;
+		left: 50px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_5{
+		position: absolute;
+		top: 72px;
+		left: 300px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_6{
+		position: absolute;
+		top: 88px;
+		left: 550px;
+		width: 70px;
+		height: 30px;
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 8px;
+	}
+	.brush_1 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 15px;
+	}
+	.brush_2 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 15px;
+	}
+	.brush_3 .text_1{
+		width: 100px;
+		height: 30px;
+		margin-left: 15px;
+		margin-right: 10px;
+	}
+	.brush_3 .text_2{
+		width: 100px;
+		height: 30px;
+		margin-left: 10px;
+	}
+	.brush_4 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 31px;
+	}
+	.brush_5 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 15px;
+	}
+	.brush_6 img{
+		width: 55px;
+		height: 25px;
+		margin-top: 3px;
+		margin-left: 9px;
+	}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <a class="mui-icon mui-icon-contact mui-icon-right nav mui-pull-right" id="info"></a>
+		    <h1 class="mui-title">标题</h1>
+		</header>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function() {
+				//仅支持竖屏显示
+
+				main = plus.webview.currentWebview();
+			});
+			
+				//处理右上角关于图标的点击事件；
+			var subWebview = null,
+				template = null;
+			document.getElementById('info').addEventListener('tap', function() {
+				if (!mui.os.plus) {
+					mui.openWindow({
+						url: "detail.html",
+						id: "info",
+						show: {
+							aniShow: 'zoom-fade-out',
+							duration: 300
+						}
+					});
+					return;
+				}
+				if (subWebview == null) {
+					//获取共用父窗体
+					template = plus.webview.getWebviewById(main.id);
+				}
+				if (template) {
+					subWebview = template.children()[0];
+					subWebview.loadURL('detail.html');
+					//修改共用父模板的标题
+					mui.fire(template, 'updateHeader', {
+						title: '关于',
+						showMenu: false
+					});
+					template.show('slide-in-right', 150);
+				}
+				//				mui.openWindow({
+				//					url:"examples/info.html",
+				//					id:"info",
+				//					show:{
+				//						aniShow:'zoom-fade-out',
+				//						duration:300
+				//					}
+				//				});
+			});
+		</script>
+	</body>
+
+</html>

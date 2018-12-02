@@ -1,0 +1,9 @@
+server:
+  port: 8040
+spring:
+  application:
+    name: micro-gateway-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+		
+	</head>
+	<body>
+		<div style="width:600px;height: 200px;float: left;margin-top: 5px;margin-left: 50px;">
+			<canvas id="myChart" width="550" height="180"></canvas>
+		</div>
+		
+		<script>
+			var ctx = document.getElementById("myChart").getContext('2d');
+			var length = 7;
+			var i = 0;
+			var j = ",";
+			var myChart = new Chart(ctx, {
+			    type: 'line',	//柱状图改成bar
+			    data: {
+			        labels: ["Oct 14-20", "Nov4-10", "Nov11-17", "Nov18-24", "Dec1-7", "Dec8-15"],
+			        datasets: [{
+			            label: '周',
+			            data: [44, 29, 13, 35, 24, 3],
+			            backgroundColor: [
+			                'rgba(178, 238, 221, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)',
+			                'rgba(255, 159, 64, 0.2)'
+			            ],
+			            borderColor: [
+							'rgba(0,172,130,1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)',
+			                'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        },
+			       	{
+			            label: '周',
+			            data: [4, 19, 13, 25, 2, 13],
+			            backgroundColor: [
+			                'rgba(178, 238, 221, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)',
+			                'rgba(255, 159, 64, 0.2)'
+			            ],
+			            borderColor: [
+							'rgba(0,172,130,1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)',
+			                'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        }
+			        ]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+			});
+			
+		</script>
+	</body>
+</html>

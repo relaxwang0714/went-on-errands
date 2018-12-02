@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">接单设置</h1>
+		</header>
+		<div class="mui-content">
+		    <ul class="mui-table-view"> 
+        <li class="mui-table-view-cell mui-collapse">
+            <a class="mui-navigate-right" href="#">当前交通工具</a>
+            <div class="mui-collapse-content">
+                <div class="mui-input-row mui-radio ">
+                    <label>自行车</label>
+                    <input name="radio" type="radio" value="自行车">
+                </div>
+                <div class="mui-input-row mui-radio ">
+                    <label>电瓶车</label>
+                    <input name="radio" type="radio" value="电瓶车" >
+                </div>
+                
+                 </div>
+                  </li>
+   					 </ul>
+   					 <div style="margin: 10px;"><h5>偏好设置</h5></div>
+                <ul class="mui-table-view">
+                       
+                        <li class="mui-table-view-cell">
+                            <a class="mui-navigate-right">
+                                 	距离偏好
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            
+                                 接收更多推荐 <div class="mui-switch">
+  						<div class="mui-switch-handle"></div>
+							</div>
+                          
+                        </li>
+
+                    </ul>
+                    <button type="button" class="mui-btn mui-btn-blue mui-btn-block mui-btn-block" style="margin-top: 150px;">确定</button>
+           
+       
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+		</script>
+	</body>
+
+</html>

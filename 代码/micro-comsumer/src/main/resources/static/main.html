@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>跑腿平台</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			.title {
+				margin: 35px 15px 10px;
+			}
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			input {
+				color: #000;
+			}
+			.mui-off-canvas-left .mui-table-view{
+				background: #333;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- 主界面不动、菜单移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+		  <!-- 菜单容器 -->
+		  <aside class="mui-off-canvas-left" id="offCanvasSide">
+		    <div class="mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 菜单具体展示内容 -->
+				<div class="title">王泽华</div>
+		        <ul class="mui-table-view" style="margin-top: 200px;">
+		                <li class="mui-table-view-cell">
+		                	
+		                    <a class="mui-navigate-right" id="business">    
+		                    	我的订单
+		                    </a>
+		                </li>
+		                <li class="mui-table-view-cell">
+		                	
+		                    <a class="mui-navigate-right" id="account"> 
+		                    	我的账户
+		                    </a>
+		                </li>
+		                <li class="mui-table-view-cell">
+		                	
+		                    <a class="mui-navigate-right" id="address">   
+		                    	我的地址
+		                    </a>
+		                </li>
+		                <li class="mui-table-view-cell">
+		                	
+		                    <a class="mui-navigate-right" id="pingjia">   
+		                    	我的评价
+		                    </a>
+		                </li>
+		                <li class="mui-table-view-cell">
+		                	
+		                    <a class="mui-navigate-right" id="gerenzhongxin">   
+		                    	个人中心
+		                    </a>
+		                </li>
+		            </ul>
+		      </div>
+		    </div>
+		  </aside>
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" href="#offCanvasSide"></a>
+		      <h1 class="mui-title">跑腿平台</h1>
+		    </header>
+		   
+		    <div class="mui-content mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 主界面具体展示内容 -->
+		        <div id="slider" class="mui-slider" >
+		          <div class="mui-slider-group mui-slider-loop">
+		            <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+		            <div class="mui-slider-item mui-slider-item-duplicate">
+		              <a href="#">
+		                <img src="images/around4.jpg">
+		              </a>
+		            </div>
+		            <!-- 第一张 -->
+		            <div class="mui-slider-item">
+		              <a href="#">
+		                <img src="images/around1.jpg">
+		              </a>
+		            </div>
+		            <!-- 第二张 -->
+		            <div class="mui-slider-item">
+		              <a href="#">
+		                <img src="images/around2.jpg">
+		              </a>
+		            </div>
+		            <!-- 第三张 -->
+		            <div class="mui-slider-item">
+		              <a href="#">
+		                <img src="images/around3.jpg">
+		              </a>
+		            </div>
+		            <!-- 第四张 -->
+		            <div class="mui-slider-item">
+		              <a href="#">
+		                <img src="images/around4.jpg">
+		              </a>
+		            </div>
+		            <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+		            <div class="mui-slider-item mui-slider-item-duplicate">
+		              <a href="#">
+		                <img src="images/around1.jpg">
+		              </a>
+		            </div>
+		          </div>
+		          <div class="mui-slider-indicator">
+		            <div class="mui-indicator mui-active"></div>
+		            <div class="mui-indicator"></div>
+		            <div class="mui-indicator"></div>
+		            <div class="mui-indicator"></div>
+		          </div>
+		        </div>
+				<div
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;" id="detail">
+				            <img class="mui-media-object mui-pull-right" src="images/logo1.jpg">
+				            <div class="mui-media-body">
+				                帮买
+				                <p class="mui-ellipsis">2km内仅需要10元</p>
+				            </div>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-right" src="images/logo1.jpg">
+				            <div class="mui-media-body">
+				                帮送
+				                <p class="mui-ellipsis">一站式服务</p>
+				            </div>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-right" src="images/logo1.jpg">
+				            <div class="mui-media-body">
+				                帮排队
+				                <p class="mui-ellipsis">排队叫号，让您简便</p>
+				            </div>
+				        </a>
+				    </li>
+				</ul>
+		      </div>
+		    </div>  
+		    <div class="mui-off-canvas-backdrop"></div>
+		  </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=64046e345c85fb187077b812f1df0b3a&callback=init"></script> 
+		<script>
+		
+			mui.init();
+			//获得slider插件对象
+			var gallery = mui('.mui-slider');
+			gallery.slider({
+  			interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+				//我的钱包绑定监听
+			document.getElementById('detail').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'deatal.html',
+    					url:'deatal.html'
+					})		
+				}
+				});
+				document.getElementById('account').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'account.html',
+    					url:'account.html'
+					})		
+				};
+			});
+			document.getElementById('business').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'business.html',
+    					url:'business.html'
+					})		
+				};
+			});
+			document.getElementById('gerenzhongxin').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'config.html',
+    					url:'config.html'
+					})		
+				};
+			});
+			document.getElementById('address').addEventListener('tap',function(){
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'address.html',
+    					url:'address.html'
+					})		
+				};
+			});
+		</script>
+		
+	</body>
+</html>

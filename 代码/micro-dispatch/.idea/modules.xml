@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../micro-comsumer-user/micro-comsumer-user.iml" filepath="$PROJECT_DIR$/../micro-comsumer-user/micro-comsumer-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/micro-peisong.iml" filepath="$PROJECT_DIR$/micro-peisong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../cloudtest/springcloud.iml" filepath="$PROJECT_DIR$/../cloudtest/springcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../zuul/springcloud-zuul.iml" filepath="$PROJECT_DIR$/../zuul/springcloud-zuul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../EurekaServer/wzh-eureka.iml" filepath="$PROJECT_DIR$/../EurekaServer/wzh-eureka.iml" />
+    </modules>
+  </component>
+</project>

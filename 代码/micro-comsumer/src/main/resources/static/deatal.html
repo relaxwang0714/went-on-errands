@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-table-view{
+				margin: 10px 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">帮我买</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-input-row" style="margin: 10px 10px;">
+			    <textarea  rows="5" type="text" placeholder="输入想买的商品，如星巴克" id="brief">
+			    	</textarea>
+			</div>
+			<ul class="mui-table-view" ">
+			        <li class="mui-table-view-cell">
+			           <div class="mui-input-row">
+		    <label>推荐店铺</label>
+		    <input type="text" placeholder="请输入地址" id="mapinput">
+		</div>
+			        </li>
+			        <li class="mui-table-view-cell">
+			            <a class="mui-navigate-right" id="address">
+			                 完善收货人信息
+			                 
+			            </a>
+			        </li>
+
+			</ul>
+			
+		    
+   
+    <!--<ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+                   <div class="mui-input-row">
+        <label>商品价格</label>
+    <input type="text" class="mui-input-clear" placeholder="预估" >
+    </div>    
+            </li>  
+        </ul>-->
+
+
+    <ul class="mui-table-view">
+    	<li class="mui-table-view-cell">
+    		  <div class="mui-input-row">
+       		<label>小费</label>
+       		<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='10'>
+       		    <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+       		    <input class="mui-input-numbox" type="number" id="number"/>
+       		    <button class="mui-btn mui-btn-numbox-plus" type="button" id="plus">+</button>
+       		    
+       		</div>
+    </div> 
+    	</li>
+    	<li class="mui-table-view-cell">
+    		  <div class="mui-input-row">
+       		<label>重量</label>
+       		<div class="mui-numbox" data-numbox-step='1' data-numbox-min='0' data-numbox-max='10'>
+       		    <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+       		    <input class="mui-input-numbox" type="number" id="kg"/>
+       		    <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+       		    
+       		</div>
+    </div> 
+    	</li>
+            <li class="mui-table-view-cell">
+                <a class="mui-navigate-right">
+                    选择优惠券
+                </a>
+            </li>
+   
+        </ul>
+            </li>  
+       </ul>
+       <div style="margin-left: 10px;"><h4>合计：</h4></div>
+       <button type="button" class="mui-btn mui-btn-blue mui-btn-block" style="width: 95%; margin-left: 10px;" id="submit">提交</button>
+		
+		</div>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=64046e345c85fb187077b812f1df0b3a&callback=init"></script> 
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			var brief =sessionStorage.getItem('brief');
+			var mapinput =sessionStorage.getItem('mapinput');
+			var name =sessionStorage.getItem('name');
+			var phone =sessionStorage.getItem('phone');
+			var address =sessionStorage.getItem('address');
+			
+			$('#address').text(address);
+			$('#brief').val(brief);
+			$('#mapinput').val(mapinput);
+			var money =0;
+			$.ajax({
+					type:"get",
+					url:"paotui/moneyrule/帮买/"+mapinput+"/"+address,
+					async:true,
+					success:function(result){
+						money =result;
+						$('h4').text("合计："+money+"元");
+					}
+				});
+			
+			mui.init();
+			//输入提示
+			  AMap.plugin('AMap.Autocomplete', function(){
+  				// 实例化Autocomplete
+  			var autoOptions = {
+    		// input 为绑定输入提示功能的input的DOM ID
+    		input: 'mapinput',
+    		city: '杭州'
+    		
+  			}
+  		var autoComplete= new AMap.Autocomplete(autoOptions);
+  // 无需再手动执行search方法，autoComplete会根据传入input对应的DOM动态触发search
+		});
+//		AMap.plugin('AMap.Geocoder', function() {
+//	var geocoder = new AMap.Geocoder({
+//  // city 指定进行编码查询的城市，支持传入城市名、adcode 和 citycode
+//  	city: '杭州'
+//		})
+//
+//		geocoder.getLocation('星巴克', function(status, result) {
+//  	if (status === 'complete' && result.info === 'OK') {
+//  		jisuan(result);
+//    // result中对应详细地理坐标信息
+// 	 }
+//	})
+//	})
+//			$("#kg").on("input propertychange change",function(event){
+//			  	
+//     		var position =$("#mapinput").val();
+//     		
+//				});
+			
+			//选择地址
+			document.getElementById('address').addEventListener('tap',function(){
+				sessionStorage.setItem("brief",$('#brief').val());
+				sessionStorage.setItem("mapinput",$('#mapinput').val());
+				
+				if (!mui.os.plus) {
+					mui.openWindow({
+						id:'address.html',
+    					url:'address.html'
+					})	
+					
+				}
+				
+			});
+			
+			
+			//添加金额
+			document.getElementById('plus').addEventListener('tap',function(){
+				
+				
+				money++;
+				$('h4').text("合计："+money+"元");
+			});
+			//提交按钮监听
+			document.getElementById('submit').addEventListener('tap',function(){
+				var brief =$('#brief').val();
+				var positionCreate =$('#mapinput').val();
+				var userid =10001;
+				var type ="帮买";
+				//var price =20;	
+				$.ajax({
+					type:"get",
+					url:"paotui/insert/"+userid+"&"+brief+"&"+type+"&"+positionCreate
+					+"&"+address+"&"+money+"&"+phone+"&"+name,
+					async:true,
+					data:{},
+					dataType: "json",
+					success: function(result){
+						if (!mui.os.plus) {
+					mui.openWindow({
+						id:'main.html',
+    					url:'main.html'
+					})	
+					
+				}
+					},
+					error : function(){
+						mui.toast('服务器响应异常！')
+					}
+				});
+				
+			});
+//			function jisuan(){
+//				alert('yes');
+//			}
+		</script>
+	</body>
+
+</html>

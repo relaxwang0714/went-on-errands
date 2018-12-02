@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: micro-comsumer-user  
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.79.42.249:3306/paotui?useUnicode=true&&characterEncoding=utf8&&useSSL=false
+    username: root
+    password: uAiqwVwjJ8-i
+  thymeleaf:
+    cache: false
+    content-type: text/html
+    mode: LEGACYHTML5   
+eureka: 
+  client:
+    service-url:
+      daefaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8813
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*Mapper.xml 

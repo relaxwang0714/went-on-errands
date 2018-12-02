@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 实体类,简称 -设置别名 -->
+	<typeAliases>
+
+        <typeAlias alias="Integer" type="java.lang.Integer" />
+        <typeAlias alias="Long" type="java.lang.Long" />
+        <typeAlias alias="HashMap" type="java.util.HashMap" />
+        <typeAlias alias="LinkedHashMap" type="java.util.LinkedHashMap" />
+        <typeAlias alias="ArrayList" type="java.util.ArrayList" />
+        <typeAlias alias="LinkedList" type="java.util.LinkedList" />
+    </typeAliases>
+
+	<!-- 实体接口映射资源 -->
+	<!-- 说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml -->
+	<!--  <mappers>
+		<mapper resource="com/zzq/dao/UserDao.xml" />
+		<mapper resource="com/zzq/dao/UserinfomanagerDao.xml" />
+		<mapper resource="com/zzq/dao/ResourcemanagerDao.xml" />
+		<mapper resource="com/zzq/dao/CommentmanagerDao.xml" />
+		<mapper resource="com/zzq/dao/RecordDao.xml" />
+	</mappers>-->
+</configuration>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<link rel="stylesheet" href="css/t_chart.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	</head>
+	<body>
+		<!--统计报表-->
+		<div id="statistics">
+			<h5>实时监控报表</h5>
+			<div id="title">
+				<span><b>BusinessID:</b>&nbsp;00010002</span><br />
+				<span><b>BusinessName:</b>&nbsp;破伤风疫苗</span>
+			</div>
+			
+			<div style="width:400px;height: 400px;float: left;margin-top: 150px;margin-left: 150px;">
+				<canvas id="myChart" width="200" height="200"></canvas>
+			</div>
+			<div style="width:400px;height: 400px;float: left;margin-left: 170px;margin-top: 150px;" class="dl">
+				<canvas id="mChart" width="200" height="200"></canvas>
+			</div>
+		</div>
+
+		<script>
+			var ctx = document.getElementById("myChart").getContext('2d');
+			var ctx_2 = document.getElementById("mChart").getContext('2d');
+			var length = 0;
+			var i = 0;
+			var j = ",";
+			var myChart = new Chart(ctx, {
+			    type: 'line',
+			    data: {
+			        labels: ["1h", "2h", "3h", "4h", "5h", "6h","7h","8h","9h","10h"],
+			        datasets: [{
+			            label: '实时温度/℃',
+			            data: [44, 29, 13, 35, 24, 3,40],
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)',
+			                'rgba(255, 159, 64, 0.2)'
+			            ],
+			            borderColor: [
+							'rgba(255,99,132,1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)',
+			                'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+			});
+			
+			var mChart = new Chart(ctx_2, {
+			    type: 'line',
+			    data: {
+			        labels: ["1h", "2h", "3h", "4h", "5h", "6h","7h","8h","9h","10h"],
+			        datasets: [{
+			            label: '实时湿度/%rh',
+			            data: [44, 29, 13, 35, 24, 3,40],
+			            backgroundColor: [
+			                'rgba(135,206,250, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)',
+			                'rgba(255, 159, 64, 0.2)'
+			            ],
+			            borderColor: [
+			                'rgba(0,0,255,1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(30, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 30, 1)',
+			                'rgba(30, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+			});
+		</script>
+	</body>
+</html>

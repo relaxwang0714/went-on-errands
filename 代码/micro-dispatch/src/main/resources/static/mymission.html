@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+				 
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				/*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+				
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+			.money{
+				font-size: 30px; 
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的任务</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item mui-active" href="#item1mobile">
+							待取货
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							配送中
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							已完成
+						</a>
+
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<p>这里还什么都没有哦，刷新一下吧</p>
+								<!--<div class="mui-card" >
+						<div class="mui-card-header"><span class="money"></span> <span></span> 	<span></span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li><span>  </span> <span>13093761556</span></li>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：</li>
+										
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：</li>
+										
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">开始配送</button></div>
+							</div>-->
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+							
+							<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥15</span> <span>帮取</span> 	<span>2018-05-26 16:42:15</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li><span> 徐先生 </span> <span>13093761556</span></li>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：电子科技大学</li>
+										
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：雷峰塔</li>
+										
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">配送完成</button></div>
+							</div>
+							</div>
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+									<div class="mui-card" >
+						<div class="mui-card-header"><span class="money">¥15</span> <span>帮取</span> 	<span>2018-05-26 16:42:15</span></div>
+							<div class="mui-card-content">
+								<div class="mui-card-content-inner">
+									<ul>
+										<li><span> 李女士 </span> <span>13093761556</span></li>
+										<span>买一杯抹茶拿铁</span>
+										<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：电子科技大学</li>
+										
+										<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：雷峰塔</li>
+										
+									</ul>
+								</div>
+							</div>
+							<div class="mui-card-footer">
+								<button type="button" class="mui-btn mui-btn-blue mui-btn-block">查看详情</button></div>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>
+		<script>
+			mui.init();
+				var collectorid =sessionStorage.getItem('collectorid')
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				mui('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+				mui.ready(function() {
+					//循环初始化所有下拉刷新，上拉加载。
+					mui.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+						mui(pullRefreshEl).pullToRefresh({
+							down: {
+								callback: function() {
+									var self = this;
+									var collectorid =sessionStorage.getItem("collectorid");
+									var index1= index+1;
+									mui.toast("1");
+									$.ajax({
+										type:"get",
+										url:"peisong/searchbystatus/"+collectorid+"/"+index1+"",
+											async:true,
+											dataType: "json",//预期服务器返回的数据类型
+											success:function(result){
+										if(index==0){
+											$('.mui-slider-group .mui-scroll').first().empty();
+											$.each(result, function(index, item){
+											var con1="";
+											con1 +='<div class="mui-card" id='+item.id+'>'
+											con1	+='<div class="mui-card-header"><span class="money">¥'+item.price+'</span> <span>'+item.type+'</span><span>'+item.startTime+'</span></div>'
+											con1	+='<div class="mui-card-content"><div class="mui-card-content-inner">'
+											con1	+='<ul><li><span>'+item.name+'  </span> <span>'+item.phone+'</span></li>'
+											con1    +='<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：'+item.positionCreate+'</li>'
+											con1	+='<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：'+item.positionFinish+'</li>'
+											con1 += '</ul></div></div><div class="mui-card-footer">'
+											con1	+='<button type="button" class="mui-btn mui-btn-blue mui-btn-block">开始配送</button></div></div>'
+											$('.mui-slider-group .mui-scroll').first().append(con1);
+										//var ul = self.element.querySelector('.mui-table-view');
+										//ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+											self.endPullDownToRefresh();
+											});
+										}
+									
+									 if(index==1){
+									 	$('.mui-slider-group .mui-scroll').eq(1).empty();
+									 	$.each(result, function(index, item){
+										var con1="";
+										con1 +='<div class="mui-card" id='+item.id+'>'
+											con1	+='<div class="mui-card-header" ><span class="money">¥'+item.price+'</span> <span>'+item.type+'</span><span>'+item.startTime+'</span></div>'
+											con1	+='<div class="mui-card-content"><div class="mui-card-content-inner">'
+											con1	+='<ul><li><span>'+item.name+'  </span> <span>'+item.phone+'</span></li>'
+											con1    +='<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：'+item.positionCreate+'</li>'
+											con1	+='<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：'+item.positionFinish+'</li>'
+											con1 += '</ul></div></div><div class="mui-card-footer">'
+											con1	+='<button type="button" class="mui-btn mui-btn-blue mui-btn-block">配送完成</button></div></div>'
+										$('.mui-slider-group .mui-scroll').eq(1).append(con1);
+										self.endPullDownToRefresh();
+										});
+										
+									}
+									 if(index==2){
+									 	$('.mui-slider-group .mui-scroll').eq(2).empty();
+									 	$.each(result, function(index, item){
+										var con1="";
+										con1 +='<div class="mui-card" id='+item.id+'>'
+											con1	+='<div class="mui-card-header" ><span class="money">¥'+item.price+'</span> <span>'+item.type+'</span><span>'+item.startTime+'</span></div>'
+											con1	+='<div class="mui-card-content"><div class="mui-card-content-inner">'
+											con1	+='<ul><li><span>'+item.name+'  </span> <span>'+item.phone+'</span></li>'
+											con1    +='<li style="color: #6EABC2;font-size: 20px;margin-bottom: 5px; margin-top: 5px;">从：'+item.positionCreate+'</li>'
+											con1	+='<li style="color: #80D0A5;font-size: 20px;margin-bottom: 5px margin-top: 5px;">至：'+item.positionFinish+'</li>'
+											con1 += '</ul></div></div><div class="mui-card-footer">'
+											con1	+='<button type="button" class="mui-btn mui-btn-blue mui-btn-block">查看详情</button></div></div>'
+										$('.mui-slider-group .mui-scroll').eq(2).append(con1);
+										self.endPullDownToRefresh();
+										});
+									}
+									 	},
+									 	error :function(){
+									 		//mui.toast("wrong")
+									 	}
+									});
+								}
+							},
+//							up: {
+//								callback: function() {
+//									var self = this;
+//									setTimeout(function() {
+//										var ul = self.element.querySelector('.mui-table-view');
+//										ul.appendChild(createFragment(ul, index, 5));
+//										self.endPullUpToRefresh();
+//									}, 1000);
+//								}
+//							}
+						});
+					});
+					mui("#item1mobile").on('tap','button',function(){
+						var id = $(this).parent().parent().attr('id');
+						mui.toast(id);
+						$.ajax({
+							type:"get",
+							url:"",
+							async:true,
+							data:{},
+							success: function(){
+								mui.toast("开始配送！订单号"+id);
+							},
+							error: function(){
+								
+							}
+						});
+						
+						
+					});
+					mui("#item2mobile").on('tap','.mui-btn',function(){
+						var id = $(this).parent().parent().attr('id');
+						mui.toast(id);
+
+						$.ajax({
+							type:"get",
+							url:"",
+							async:true,
+							data:{},
+							success: function(){
+								mui.toast("配送完成！订单号"+id);
+							},
+							error: function(){
+								
+							}
+						});
+						
+						
+					});
+					mui("#item3mobile").on('tap','.mui-btn',function(){
+						var id = $(this).parent().parent().attr('id');
+						
+						$.ajax({
+							type:"get",
+							url:"",
+							async:true,
+							data:{},
+							success: function(){
+								
+							},
+							error: function(){
+								
+							}
+						});
+						
+						
+					});
+
+				});
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="layui/layui.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all"/>
+		<style type="text/css">
+			.layui-form{
+				padding-top: 20px;
+			}
+			.layui-form-item{
+				padding-left: 50px;
+			}
+			.layui-field-box{
+				padding-left: 0px;
+			}
+			.layui-form-select,.layui-input,.layui-textarea{
+				width: 450px;
+				float: left;
+			}
+			.button1{
+				margin-left: 320px;
+			}
+			.titles_1{
+				width: 150px;
+			}
+			.titles_2{
+				width: 135px;
+			}
+			.layui-form-select{
+				margin-left: 55px;
+			}
+		</style>
+		
+		<script>
+			//Demo
+			layui.use('form', function(){
+			  var form = layui.form;
+			  
+			  //监听提交
+			  form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			  });
+			});
+		</script>
+	</head>
+	<body>
+		<form class="layui-form" action="">
+    		
+    		<fieldset class="layui-elem-field">
+			  <legend>权限分配- 用户_设备</legend>
+			  <div class="layui-field-box">
+			  	
+			    <div class="layui-form-item">
+		    		<div class="layui-input-block">
+		    			<label class="layui-form-label titles_1">当前UserCode:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>31312</b></label>
+		    			<input type="hidden" name="userCode" value="222">
+		    		</div>
+    			</div>
+    			
+    			<div class="layui-form-item">
+		    		<div class="layui-input-block">
+		    			<label class="layui-form-label titles_2">已分配EquipmentID:</label>
+		    			<textarea name="desc" placeholder="" class="layui-textarea">31312</textarea>
+		    		</div>
+    			</div>
+    			
+    			<!--<div class="layui-form-item">
+				    <div class="layui-input-block">
+				    	<label class="layui-form-label titles_3"><label style="color: red;">*</label>EquipmentID：</label>
+		      			<input type="text" name="title" required lay-verify="required" placeholder="请输入要分配的EquipmentID" autocomplete="off" class="layui-input">
+				    </div>
+			  	</div>-->
+			  	
+			  	<div class="layui-form-item">
+				    <div class="layui-input-block">
+				    	<label class="layui-form-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EquipmentID:</label>
+				      	<select name="city" lay-verify="" class="titles_3">
+							<option value="">请选择要分配的EquipmentID</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						  	<option value="1">冷链车</option>
+						  	<option value="2">冷藏柜</option>
+						  	<option value="3">记录仪</option>
+						</select>  
+				    </div>
+			  	</div>
+			  	
+			  	<div class="layui-form-item">
+				    <div class="layui-input-block button1">
+				      	<button class="layui-btn" lay-submit lay-filter="formDemo">立即分配</button>
+				      	<button type="reset" class="layui-btn layui-btn-primary">取消</button>
+				    </div>
+			  	</div>
+			  	
+			  </div>
+			</fieldset>
+    		
+		</form>
+	</body>
+</html>

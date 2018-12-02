@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="micro-comsumer-user" />
+        <module name="micro-peisong" />
+        <module name="springcloud" />
+        <module name="springcloud-zuul" />
+        <module name="wzh-eureka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="micro-comsumer-user" target="1.8" />
+      <module name="micro-peisong" target="1.8" />
+      <module name="springcloud" target="1.8" />
+      <module name="springcloud-zuul" target="1.8" />
+      <module name="wzh-eureka" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

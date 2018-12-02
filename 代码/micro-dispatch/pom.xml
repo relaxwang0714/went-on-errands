@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.wzh</groupId>
+  <artifactId>micro-peisong</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>peisongyuan</name>
+ <!-- 父类继承一定要加 -->
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-parent</artifactId>
+  	<version>1.5.1.RELEASE</version>
+  </parent>
+  <!-- 作用于打包jar包 -->
+  <build>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  			</configuration>
+     	 </plugin>
+     	 <plugin>
+		 	<groupId>org.springframework.boot</groupId>
+		 	<artifactId>spring-boot-maven-plugin</artifactId>
+		 	<executions>
+         		<execution>
+         			<goals>
+         				<goal>repackage</goal>
+         			</goals>
+         		</execution>
+        	</executions>
+	     </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  <!-- mybaits jdbc  -->
+  	<dependency>
+    	<groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <!-- spring boot 核心依赖 -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  		<version>1.5.1.RELEASE</version>
+  	</dependency>
+  	<dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-test</artifactId>  
+        <scope>test</scope>  
+        </dependency> 
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+	<!-- spring cloud actour -->
+    <dependency>
+  		<groupId>org.springframework.boot</groupId>
+ 		<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	<!-- spring cloud eureka -->
+	<dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-eureka</artifactId>
+    </dependency>
+    <!-- spring cloud feign -->
+	<dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-feign</artifactId>
+    </dependency>
+      <!-- spring cloud hystrix -->
+    <dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-hystrix</artifactId>
+    </dependency>
+    
+   </dependencies>
+    <!-- spring cloud 核心依赖  这个版本可能需要修改的-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <!-- Edgware.RELEASE -->
+                <version>Camden.SR6</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>   
+        </dependencies>
+    </dependencyManagement>
+</project>

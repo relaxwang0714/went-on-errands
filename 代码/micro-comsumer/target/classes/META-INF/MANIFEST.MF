@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: micro-comsumer-user
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.wzh
+Build-Jdk: 1.8.0_112
+Implementation-URL: http://projects.spring.io/spring-boot/micro-comsum
+ er-user/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

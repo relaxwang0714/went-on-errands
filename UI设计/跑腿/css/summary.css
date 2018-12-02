@@ -1,0 +1,448 @@
+body{
+				background-color: #F1F2F8;
+			}
+			
+			/*时间点*/
+			#times{
+				width: 750px;
+				height: 100px;
+				margin-left: 60px;
+				/*background-color: red;*/
+			}
+			.times1{
+				float: left;
+				position: relative;
+				top: 23px;
+				width: 80px;
+				height: 52px;
+				background-color: white;
+			}
+			.times2{
+				float: left;
+				position: relative;
+				top: 23px;
+				left: 30px;
+				width: 80px;
+				height: 52px;
+				background-color: white;
+			}
+			.times3{
+				float: left;
+				position: relative;
+				top: 23px;
+				left: 60px;
+				width: 80px;
+				height: 52px;
+				background-color: white;
+			}
+			.times4{
+				float: left;
+				position: relative;
+				top: 23px;
+				left: 90px;
+				width: 80px;
+				height: 52px;
+				background-color: white;
+			}
+			.times1 h5,.times2 h5,.times3 h5,.times4 h5{
+				position: absolute;
+				width: 0px;
+				height: 30px;
+				text-indent:8px;
+				top: -20px;
+				left: 5px;
+				border-top-left-radius:3px;
+				border-top-right-radius:3px;
+				border-bottom-left-radius:3px;
+				border-bottom-right-radius:3px;
+			}
+			.times1 h5{
+				border:9px solid #A2E6FF;
+			}
+			.times2 h5{
+				border:9px solid #A2ECE2;
+			}
+			.times3 h5{
+				border:9px solid #E6ACA2;
+			}
+			.times4 h5{
+				border:8.9px solid #FEF6B1;
+			}
+			.times1 span,.times2 span,.times3 span,.times4 span{
+				position: absolute;
+				top: 15px;
+				left: 25px;
+				font-size: 18px;
+				text-indent:5px;
+				letter-spacing: 1.5px;
+			}
+			
+			/*内容*/
+			#concent{
+				position: relative;
+				width: 1100px;
+				height: 1000px;
+				margin-top: 10px;
+				margin-left: 40px;
+				/*background-color: red;*/
+			}
+			
+			/*实时概况*/
+			#real_time{
+				float: left;
+				width: 550px;
+				height: 400px;
+				background-color: white;
+			}
+			#real_time .title{
+				width: 100%;
+				height: 70px;
+				line-height: 70px;
+				font-size: 18px;
+				padding-left: 27px;
+				/*background-color: blue;*/
+			}
+			#real_time .rt1{
+				position: relative;
+				width: 250px;
+				height: 110px;
+				float: left;
+				/*background-color: yellow;*/
+			}
+			#real_time .rt1 img{
+				position: absolute;
+				top: 18px;
+				left: 48px;
+			}
+			#real_time .rt1 .rt1_top{
+				position: absolute;
+				top: 24px;
+				left: 125px;
+				font-weight: 550;
+				font-size: 18px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt1 .rt1_bottem{
+				position: absolute;
+				bottom: 24px;
+				left: 125px;
+				font-weight: 550;
+				font-size: 20px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt2{
+				position: relative;
+				width: 250px;
+				height: 110px;
+				float: left;
+				/*background-color: yellow;*/
+			}
+			#real_time .rt2 img{
+				position: absolute;
+				top: 18px;
+				left: -10px;
+			}
+			#real_time .rt2 .rt2_top{
+				position: absolute;
+				top: 24px;
+				left: 65px;
+				font-weight: 550;
+				font-size: 18px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt2 .rt2_bottem{
+				position: absolute;
+				bottom: 24px;
+				left: 65px;
+				font-weight: 550;
+				font-size: 20px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt3{
+				position: relative;
+				width: 250px;
+				height: 110px;
+				display: inline-block;
+				/*border-top: 1px gainsboro dashed;*/
+				/*border-bottom: 1px gainsboro dashed;*/
+				/*background-color: green;*/
+			}
+			#real_time .rt3 img{
+				position: absolute;
+				top: 18px;
+				left: 48px;
+			}
+			#real_time .rt3 .rt3_top{
+				position: absolute;
+				top: 24px;
+				left: 125px;
+				font-weight: 550;
+				font-size: 18px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt3 .rt3_bottem{
+				position: absolute;
+				bottom: 24px;
+				left: 125px;
+				font-weight: 550;
+				font-size: 20px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt4{
+				position: relative;
+				display: inline-block;
+				width: 250px;
+				height: 110px;
+				margin-left: -5px;
+				/*border-top: 1px gainsboro dashed;*/
+				/*border-bottom: 1px gainsboro dashed;*/
+				/*background-color: green;*/
+			}
+			#real_time .rt4 img{
+				position: absolute;
+				top: 18px;
+				left: -10px;
+			}
+			#real_time .rt4 .rt4_top{
+				position: absolute;
+				top: 24px;
+				left: 65px;
+				font-weight: 550;
+				font-size: 18px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt4 .rt4_bottem{
+				position: absolute;
+				bottom: 24px;
+				left: 65px;
+				font-weight: 550;
+				font-size: 20px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt5{
+				position: relative;
+				display: inline-block;
+				width: 250px;
+				height: 110px;
+				margin-top: -5px;
+				/*background-color: gray;*/
+			}
+			#real_time .rt5 img{
+				position: absolute;
+				top: 18px;
+				left: 48px;
+			}
+			#real_time .rt5 .rt5_top{
+				position: absolute;
+				top: 24px;
+				left: 125px;
+				font-weight: 550;
+				font-size: 18px;
+				font-family:"微软雅黑";
+			}
+			#real_time .rt5 .rt5_bottem{
+				position: absolute;
+				bottom: 24px;
+				left: 125px;
+				font-weight: 550;
+				font-size: 20px;
+				font-family:"微软雅黑";
+			}
+			
+			/*订单成交量*/
+			#oders{
+				width: 500px;
+				height: 400px;
+				float: left;
+				margin-left: 30px;
+				background-color: white;
+			}
+			#oders .title{
+				width: 100%;
+				height: 70px;
+				line-height: 70px;
+				font-size: 18px;
+				padding-left: 27px;
+				/*background-color: blue;*/
+			}
+			#oders .od_con{
+				width: 100%;
+				height: 330px;
+				/*background-color: yellow;*/	
+			}
+			/*#myChart{
+				width: 300px;
+				height: 300px;
+			}*/
+			
+			/*回收废品大类统计*/
+			#statistics{
+				position: relative;
+				top: -150px;
+				display: inline-block;
+				width: 330px;
+				height: 390px;
+				background-color: white;
+			}
+			#statistics .title{
+				position: absolute;
+				width: 330px;
+				height: 70px;
+				line-height: 70px;
+				font-size: 18px;
+				padding-left: 27px;
+				/*background-color: blue;*/
+			}
+			#statistics .st_left{
+				position: relative;
+				width: 165px;
+				height: 320px;
+				float: left;
+				margin-top: 70px;
+				/*background-color: yellow;*/
+			}
+			#statistics .st_right{
+				position: relative;
+				width: 165px;
+				height: 320px;
+				float: left;
+				margin-top: 70px;
+				/*background-color: green;*/
+			}
+			#statistics .st_left ul{
+				margin-top: 25px;
+			}
+			#statistics .st_left .st_leftname{
+				position: absolute;
+				line-height: 40px;
+				top: 32px;
+				left: 55px;
+				font-family: "微软雅黑";
+			}
+			#statistics .st_right .st_rigcon{
+				position: absolute;
+				line-height: 40px;
+				top: 32px;
+				font-family: "微软雅黑	";
+			}
+			
+			/*商品TOP10*/
+			#ware{
+				position: relative;
+				display: inline-block;
+				width: 330px;
+				height:540px; 
+				overflow:hidden; 
+				margin-top: 20px;
+				margin-left: 30px;
+				background-color: white;
+			}
+			#ware .title{
+				position: absolute;
+				width: 330px;
+				height: 70px;
+				line-height: 70px;
+				font-size: 18px;
+				padding-left: 27px;
+				/*background-color: blue;*/
+			}
+			#ware .ware_left{
+				position: relative;
+				width: 165px;
+				height: 450px;
+				float: left;
+				margin-top: 70px;
+				/*background-color: yellow;*/
+			}
+			#ware .ware_right{
+				position: relative;
+				width: 165px;
+				height: 450px;
+				float: left;
+				margin-top: 70px;
+				/*background-color: green;*/
+			}
+			#ware .ware_left .ware_leftname{
+				position: absolute;
+				line-height: 40px;
+				height: 700px;
+				top: 32px;
+				left: 45px;
+				font-family: "微软雅黑";
+			}
+			#ware .ware_right .ware_rigcon{
+				position: absolute;
+				line-height: 40px;
+				top: 32px;
+				left: 35px;
+				font-family: "微软雅黑	";
+			}
+			
+			/*回收站分布信息*/
+			#distribute{
+				position: relative;
+				top: -130px;
+				display: inline-block;
+				width: 330px;
+				height: 410px;
+				margin-left: 30px;
+				background-color: white;
+			}
+			#distribute .title{
+				position: absolute;
+				width: 330px;
+				height: 70px;
+				line-height: 70px;
+				font-size: 18px;
+				padding-left: 27px;
+				/*background-color: blue;*/
+			}
+			#distribute .distribute_left{
+				position: relative;
+				width: 165px;
+				height: 450px;
+				float: left;
+				margin-top: 70px;
+				/*background-color: yellow;*/
+			}
+			#distribute .distribute_right{
+				position: relative;
+				width: 165px;
+				height: 450px;
+				float: left;
+				margin-top: 70px;
+				/*background-color: green;*/
+			}
+			#distribute .distribute_left .distribute_leftname{
+				position: absolute;
+				line-height: 40px;
+				top: 32px;
+				left: 42px;
+				font-family: "微软雅黑";
+				color: dimgray;
+			}
+			#distribute .distribute_right .distribute_rigcon{
+				position: absolute;
+				
+				top: 32px;
+				left: 35px;
+				font-family: "微软雅黑	";
+			}
+			.distribute_select{
+				position: absolute;
+				top: 25px;
+				left: 240px;
+			}
+			.distribute_select select{
+				width: 90px;
+				height: 40px;
+				background-color: #F9F9F9;
+				border: none;
+				outline: none;
+				box-shadow: 0.1px 0.2px 0.2px 0.2px #888888;
+			}
+			option{
+				background-color: #F9F9F9;
+				-webkit-appearance:none;
+				appearance:none;
+			}

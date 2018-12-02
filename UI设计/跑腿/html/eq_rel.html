@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="layui/layui.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all"/>
+		<style type="text/css">
+			.layui-form{
+				padding-top: 20px;
+			}
+			.layui-form-item{
+				padding-left: 50px;
+			}
+			.layui-field-box{
+				padding-left: 0px;
+			}
+			.layui-form-select,.layui-input,.layui-textarea{
+				width: 450px;
+				float: left;
+			}
+			.button1{
+				margin-left: 320px;
+			}
+			.titles_1{
+				width: 150px;
+			}
+			.titles_2{
+				width: 135px;
+			}
+			.layui-form-select{
+				margin-left: 55px;
+			}
+		</style>
+		
+		<script>
+			//Demo
+			layui.use('form', function(){
+			  var form = layui.form;
+			  
+			  //监听提交
+			  form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			  });
+			});
+		</script>
+	</head>
+	<body>
+		<form class="layui-form" action="">
+    		
+    		<fieldset class="layui-elem-field">
+			  <legend>权限分配- 用户_设备</legend>
+			  <div class="layui-field-box">
+			  	
+			    <div class="layui-form-item">
+		    		<div class="layui-input-block">
+		    			<label class="layui-form-label titles_1">当前状态:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>1</b></label>
+		    			<input type="hidden" name="userCode" value="222">
+		    		</div>
+    			</div>
+    			
+    			
+			  	<div class="layui-form-item">
+				    <div class="layui-input-block button1">
+				      	<button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
+				      	<button type="reset" class="layui-btn layui-btn-primary">取消</button>
+				    </div>
+			  	</div>
+			  	
+			  </div>
+			</fieldset>
+    		
+		</form>
+	</body>
+</html>
