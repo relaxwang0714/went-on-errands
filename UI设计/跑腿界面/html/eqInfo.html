@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="layer/layer.js"></script>
+    <link rel="stylesheet" href="css/eqInfo.css">
+    <script>
+		$(document).ready(function(){
+//			标签
+//			$(".biaoqian").click(function(){
+//				
+//				layer.open({
+//					type: 1,
+//					title:['设备标签类','font-size:18px;'],
+//				    area: ['200px', '160px'],
+//				    shadeClose: true, //点击遮罩关闭
+//				    content: '<a href=\"#\"><button>冷链车</button></a><a href=\"#\"><button>冷藏柜</button></a><a href=\"#\"><button>记录仪</button></a>'
+//				});
+//				
+//			});
+			
+			$(".edit-eq").click(function(){
+					
+					layer.open({
+						type: 2,
+						title:['添加设备','font-size:18px;'],
+					    area: ['900px', '560px'],
+					    shadeClose: true, //点击遮罩关闭
+					    content: 'edit_eq.html'
+					});
+					
+				});
+			
+		});
+	</script>
+	<body>
+		
+		<!--搜索框-->
+		<form method="post">
+			<div class="biaoqian">
+				<select name="suser" lay-verify="">
+					<option value="">请选择用户标签</option>
+					<option value="1">Username</option>
+					<option value="2">Phone</option>
+					<option value="3">Email</option>
+					<option value="4">CompanyID</option>
+					<option value="5">UserCode</option>
+				</select>  
+			</div>
+			<div class="input-group">
+	    		<input type="text" class="text" placeholder="请输入设备信息进行搜索">
+	    		<input type="submit" class="input-group-addon btn btn-primary">
+			</div> 
+		</form>
+		<!--<button class="biaoqian">标签</button>-->
+		
+		<!--表格数据-->
+		<div id="eqData">
+			<table style="width: 1328px;">
+				<tr>
+					<th colspan="4">型号数据</th>
+					<th colspan="5">最新采集数据</th>
+				</tr>
+				
+				<tr>
+					<td>序列号</td>
+					<td>设备名称</td>
+					<td>型号</td>
+					<td class="brt1">标签</td>
+					<td>温度</td>
+					<td>湿度</td>
+					<td>电量</td>
+					<td class="brt2"></td>
+				</tr>
+				<tr>
+					<td>未知</td>
+					<td>未命名</td>
+					<td>未知</td>
+					<td class="brt1">暂无标签信息</td>
+					<td>暂无</td>
+					<td>暂无</td>
+					<td>暂无</td>
+					<td class="brt2"><a href="#">权限设置</a>/<a href="#" class="edit-eq">修改</a>/<a href="#">删除</a></td>
+				</tr>
+				<tr>
+					<td>未知</td>
+					<td>未命名</td>
+					<td>未知</td>
+					<td class="brt1">暂无标签信息</td>
+					<td>暂无</td>
+					<td>暂无</td>
+					<td>暂无</td>
+					<td class="brt2"><a href="#">权限设置</a>/<a href="#" class="edit-eq">修改</a>/<a href="#">删除</a></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="layui/layui.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all"/>
+		<style type="text/css">
+			.layui-form{
+				padding-top: 20px;
+			}
+			.layui-form-item{
+				padding-left: 50px;
+			}
+			.layui-field-box{
+				padding-left: 0px;
+			}
+			.layui-form-select,.layui-input,.layui-textarea{
+				width: 450px;
+				float: left;
+			}
+			.layui-form-label{
+				margin-right: 20px;
+			}
+			.button1{
+				margin-left: 320px;
+			}
+		</style>
+		
+		<script>
+			//Demo
+			layui.use('form', function(){
+			  var form = layui.form;
+			  
+			  //监听提交
+			  form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			  });
+			});
+		</script>
+	</head>
+	<body>
+		<form class="layui-form" action="">
+    		
+    		<fieldset class="layui-elem-field">
+			  <legend>添加 - 订单信息</legend>
+			  <div class="layui-field-box">
+			  	
+			    <div class="layui-form-item">
+		    		<div class="layui-input-block">
+		    			<label class="layui-form-label"><label style="color: red;">*</label>BusinessID：</label>
+		      			<input type="text" name="title" required lay-verify="required" placeholder="请输入BusinessID" autocomplete="off" class="layui-input">
+		    		</div>
+    			</div>
+    			
+    			<div class="layui-form-item">
+				    <div class="layui-input-block">
+				    	<label class="layui-form-label"><label style="color: red;">*</label>Temperature：</label>
+		      			<input type="text" name="title" required lay-verify="required" placeholder="请输入Temperature" autocomplete="off" class="layui-input">
+				    </div>
+			  	</div>
+			  	
+			  	<div class="layui-form-item">
+				    <div class="layui-input-block">
+				    	<label class="layui-form-label"><label style="color: red;">*</label>Humidity：</label>
+		      			<input type="text" name="title" required lay-verify="required" placeholder="请输入Humidity" autocomplete="off" class="layui-input">
+				    </div>
+			  	</div>
+			  	
+			  	<div class="layui-form-item layui-form-text">
+				    <div class="layui-input-block">
+				    	<label class="layui-form-label"><label style="color: red;">*</label>BusinessType：</label>
+		      			<input type="text" name="title" required lay-verify="required" placeholder="请输入BusinessType" autocomplete="off" class="layui-input">
+				    </div>
+			  	</div>
+			  	
+			  	<div class="layui-form-item layui-form-text">
+				    <div class="layui-input-block">
+				    	<label class="layui-form-label"><label style="color: red;">*</label>BusinessName：</label>
+		      			<input type="text" name="title" required lay-verify="required" placeholder="请输入BusinessName" autocomplete="off" class="layui-input">
+				    </div>
+			  	</div>
+			  	
+			  	<div class="layui-form-item">
+				    <div class="layui-input-block button1">
+				      	<button class="layui-btn" lay-submit lay-filter="formDemo">立即添加</button>
+				      	<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+				    </div>
+			  	</div>
+			  	
+			  </div>
+			</fieldset>
+    		
+		</form>
+	</body>
+</html>

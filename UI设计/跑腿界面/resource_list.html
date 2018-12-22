@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+		<link rel="stylesheet" href="css/resource_list.css" />
+	</head>
+	<body>
+		<!--柱状图-->
+		<div id="bar">
+			<canvas id="myChart" width="600" height="120"></canvas>
+		</div>
+		
+		<div id="resource_con">
+			<table	 cellspacing="0">
+				<tr class="t_3" style="height: 80px;">
+					<td class="td_font"><b>时间</b></td>
+					<td class="td_font"><b>类目</b></td>
+					<td class="td_font"><b>总单数</b></td>
+					<td class="td_font"><b>成交订单数</b></td>
+					<td class="td_font"><b>失败订单数</b></td>
+					<td class="td_font"><b>已抢订单数</b></td>
+					<td class="td_font"><b>配送费</b></td>
+				</tr>
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_2">  
+		           <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr> 
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr> 
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+			</table>
+		</div>
+		
+		<script>
+			var ctx = document.getElementById("myChart").getContext('2d');
+			var length = 7;
+			var i = 0;
+			var j = ",";
+			var myChart = new Chart(ctx, {
+			    type: 'bar',	//柱状图改成bar
+			    data: {
+			        labels: ["2005", "2006", "2007", "2008", "2009", "2010","2011","2012","2013","2014","2015"],
+			        datasets: [{
+			            label: '今日',
+			            data: [4, 9, 13, 25, 18, 13, 15, 21, 35, 24, 11],
+			            backgroundColor: [
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			            ],
+			            borderColor: [
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+			            ],
+			            borderWidth: 1
+			        },
+			       	{
+			            label: '本月',
+			            data: [44, 49, 53, 65, 58, 63, 65, 61, 75, 64, 51],
+			            backgroundColor: [
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			            ],
+			            borderColor: [
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+			            ],
+			            borderWidth: 1
+			        },
+			        {
+			            label: '本季',
+			            data: [114, 119, 113, 125, 118, 113, 115, 121, 135, 124, 111],
+			            backgroundColor: [
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			            ],
+			            borderColor: [
+							'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			            ],
+			            borderWidth: 1
+			        }
+			        ]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    	<script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    	<script src="http://webapi.amap.com/maps?v=1.4.2&key=a3f98bf4d8fbcd97b21afa0f10c9aacb"></script>
+    	<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="layer/layer.js"></script>
+		<link rel="stylesheet" href="css/content.css">
+		
+		<script>
+			$(document).ready(function(){
+//				添加设备
+				$("#add_eqs").click(function(){
+					
+					layer.open({
+						type: 2,
+						title:['添加设备','font-size:18px;'],
+					    area: ['900px', '480px'],
+					    shadeClose: true, //点击遮罩关闭
+					    content: 'view/add_eq.html'
+					});
+					
+				});
+				
+//				点击进入设备详情页
+				$(".eq_content").click(function(){
+					window.location.href="eqInfo.html";
+				})
+				
+				//按钮动画
+				$(".eq_content").mouseenter(function(){
+					//取消事件冒泡    
+	                event.stopPropagation();
+					//给div加入一个鼠标移入事件
+					$(this).css({'border': '1px solid red','cursor':'pointer','box-shadow':'0px 50px 20px -20px rgba(0,0,0,0.5)'});
+				
+				})
+				//给div加鼠标移出事件
+				$(".eq_content").mouseleave(function(){
+					//取消事件冒泡    
+	                event.stopPropagation();
+					$(this).css({'border': '1px solid dodgerblue','cursor':'default','box-shadow':'none'});
+				})
+				
+			});
+		</script>
+		
+	</head>
+	<body>
+		
+		<!--设备栏-->
+		<div id="equipment">
+			<div class="eq_1">
+				<div class="eq_content">
+					<div class="eq_c_logo">
+						<img src="img/eq_logo_1.jpg" />
+					</div>
+					<div class="eq_c_title">
+						<p><a href="#">异常：<span style="color: red;font-size: 27px;">0</span></a></p>
+						<br />
+						<p><a href="#">全部：0</a></p>
+					</div>
+				</div>
+				
+				<div class="eq_title">
+					冷链车
+				</div>
+			</div>
+			
+			<div class="eq_2">
+				<div class="eq_content">
+					<div class="eq_c_logo">
+						<img src="img/eq_logo_1.jpg" />
+					</div>
+					<div class="eq_c_title">
+						<p><a href="#">异常：<span style="color: red;font-size: 27px;">0</span></a></p>
+						<br />
+						<p><a href="#">全部：0</a></p>
+					</div>
+				</div>
+				<div class="eq_title">
+					冷藏柜
+				</div>
+			</div>
+			
+			<div class="eq_3">
+				<div class="eq_content">
+					<div class="eq_c_logo">
+						<img src="img/eq_logo_1.jpg" />
+					</div>
+					<div class="eq_c_title">
+						<p><a href="#">异常：<span style="color: red;font-size: 27px;">0</span></a></p>
+						<br />
+						<p><a href="#">全部：0</a></p>
+					</div>
+				</div>
+				<div class="eq_title">
+					记录仪
+				</div>
+			</div>
+			
+		</div>
+		
+		<!--添加设备-->
+		
+			<div id="add_eq">
+				<a id="add_eqs" href="#">
+					+添加设备
+				</a>
+				
+			</div>
+		
+		
+		<div id="null">
+				<!--报警信息-->
+			<div id="boder1"></div>
+			<div id="eq_info">
+				<!--<div class="boder"></div>-->
+				
+				<div class="eq_info_title">
+					<img src="img/logo_3.jpg" />
+					<span>报警信息</span>
+					<a class="replay" href="#"><img src="img/shuaxin.jpg" id="replay" style="width: 25px;height: 20px;"/>刷新</a>
+				</div>
+				
+				<!--可重复的代码-->
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				<div class="eq_info_content">
+					<div class="eq_info_content_font">
+						尊敬的用户，您的...
+					</div>
+					
+					<div class="eq_info_times">
+						<p>2017-12-25</p>
+						<p>23:59:59</p>
+					</div>
+				</div>
+				
+			</div>
+			
+			<!--地图-->
+			<!--<div id="boder2"></div>-->
+			<div id="map">
+				<div id="boder2"></div>
+				<div id="container">
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="cominfo">
+			©小凤梨股份有限公司
+		</div>
+		
+		
+		<!--<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom:11,
+        center: [116.397428, 39.90923]
+    });
+
+</script>-->
+		
+	</body>
+	<script type="text/javascript">
+/***************************************
+由于Chrome、IOS10等已不再支持非安全域的浏览器定位请求，为保证定位成功率和精度，请尽快升级您的站点到HTTPS。
+***************************************/
+    var map, geolocation;
+    //加载地图，调用浏览器定位服务
+    map = new AMap.Map('container', {
+        resizeEnable: true
+    });
+    map.plugin('AMap.Geolocation', function() {
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+        var str=['定位成功'];
+        str.push('经度：' + data.position.getLng());
+        str.push('纬度：' + data.position.getLat());
+        if(data.accuracy){
+             str.push('精度：' + data.accuracy + ' 米');
+        }//如为IP精确定位结果则没有精度信息
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('tip').innerHTML = str.join('<br>');
+    }
+    //解析定位错误信息
+    function onError(data) {
+        document.getElementById('tip').innerHTML = '定位失败';
+    }
+</script>
+</html>

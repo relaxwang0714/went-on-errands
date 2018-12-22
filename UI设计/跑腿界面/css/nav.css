@@ -1,0 +1,32 @@
+*{
+				margin: 0px;
+				padding: 0px;
+			}
+			a{
+				text-decoration: none;
+				color: white;
+			}
+			a,li:hover{
+				cursor: pointer;
+			}
+			#nav{
+				margin-top: 200px;
+				text-align: center;
+			}
+			li{
+				list-style: none;
+				width: 100%;
+				height: 60px;
+				line-height: 60px;
+			}
+			#a{
+				width: 100%;
+				height: 60px;
+			}
+			img{
+				margin-top: -150px;
+				margin-bottom: 60px;
+				margin-left: -15px;
+				width: 130px;
+				height: 80px;
+			}
