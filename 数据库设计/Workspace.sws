@@ -4,7 +4,9 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{65FC2D67-1F5C-4923-964D-1884F3698BC5}" Name="Project_1" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///F|/documents/Project_1/Project_1.prj"/>
+		<Model Expanded="Yes" ID="{65FC2D67-1F5C-4923-964D-1884F3698BC5}" Loaded="No" Name="Project_1" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///F|/documents/Project_1/Project_1.prj"/>
+		<Model Expanded="Yes" ID="{D1EAD49C-A5D2-4081-BDE2-8AE3992416E2}" Name="图图教育LDM" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///F|/TuTuEDU/数据库/图图教育LDM/图图教育LDM.prj"/>
+		<Model Expanded="Yes" ID="{A29BC321-685D-4EDE-AAD9-CEA94B33655B}" Loaded="No" Name="逻辑图" Type="{5F45F978-C4F3-4E35-A3FC-AF3318663A0F}" URL="file:///F|/TuTuEDU/数据库/图图教育LDM/逻辑图.ldm"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>
