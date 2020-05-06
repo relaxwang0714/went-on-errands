@@ -1,0 +1,30 @@
+body{
+				background-color: #E9E7EA;
+			}
+			h5{
+				width: 200px;
+				height: 27px;
+				font-size: 20px;
+				text-indent:8px;
+				border-left:4px solid #88B7E0;
+			}
+			
+			/*统计报表*/
+			#statistics{
+				width: 95%;
+				height: 700px;
+				margin-top: 30px;
+				margin-left: 20px;
+				background-color: white;
+			}
+			
+			#title{
+				position: absolute;
+				top: 150px;
+				left: 570px;
+				z-index: 2;
+			}
+			#title span{
+				font-family: "微软雅黑";
+			}
+			

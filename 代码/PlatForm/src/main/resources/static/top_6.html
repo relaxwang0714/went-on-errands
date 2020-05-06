@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/top_6.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+		$(function(){
+				//加鼠标单击事件
+				$(".top_nav1").click(function(){
+		//			让当前被点击的li背景变颜色,兄弟元素不变颜色
+					$(this).css({'border-bottom':'4px solid #364154'});
+					$(".top_nav2").css({'border-bottom':'none'});
+					$(".top_nav3").css({'border-bottom':'none'});
+				})
+				
+				$(".top_nav2").click(function(){
+		//			让当前被点击的背景变颜色
+					$(this).css({'border-bottom':'4px solid #364154'});
+					$(".top_nav1").css({'border-bottom':'none'});
+					$(".top_nav3").css({'border-bottom':'none'});
+				})
+				
+				$(".top_nav3").click(function(){
+					
+					$(this).css({'border-bottom':'4px solid #364154'});
+					$(".top_nav2").css({'border-bottom':'none'});
+					$(".top_nav1").css({'border-bottom':'none'});
+				})
+				
+			
+			
+		})	
+		
+		</script>
+	</head>
+	<body>
+		<div class="header">
+                <ul>
+                    <li><a href="shopping_list.html" target="con_3"><div class="top_nav1"><b>等待发货的订单</b></div></a></li>
+                    <li><a href="#"><div class="top_nav2"><b>发货中的订单</b></div></a></li>
+                    <li><a href="#"><div class="top_nav3"><b>已发货的订单</b></div></a></li>
+                    <li class="move"></li>
+                </ul>
+        </div>
+        <div style="width: 100%;height: 20px;background-color: white;"></div>
+        <a href="#"><div class="out_order">添加新订单</div></a>
+		
+        <!--订单-->
+		<div id="wait_top">
+			<div class="top_left">订单</div>
+			<div class="top_right">
+				<a href="#"><div class="top_right_1">回收订单</div></a>
+				<a href="#"><div class="top_right_2">商城订单</div></a>
+			</div>
+		</div>
+		
+		<div class="background"></div>
+		
+		<!--刷选框-->
+		<div id="brush">
+			<div class="brush_1">
+				收件人名称<input type="text" class="text">
+			</div>
+			<div class="brush_2">
+				买家昵称<input type="text" class="text">
+			</div>
+			<div class="brush_3">
+				创建时间<input type="text" class="text_1">至<input type="text" class="text_2">
+			</div>
+			<div class="brush_4">
+				订单编号<input type="text" class="text">
+			</div>
+			<div class="brush_5">
+				订单类型
+				<select name="city" lay-verify="" value="" placeholder="请选择设备标签">
+					<option value="">&nbsp;&nbsp;&nbsp;全部</option>
+					<option value="1">&nbsp;&nbsp;&nbsp;冷链车</option>
+					<option value="2">&nbsp;&nbsp;&nbsp;冷藏柜</option>
+					<option value="3">&nbsp;&nbsp;&nbsp;记录仪</option>
+				</select> 
+			</div>
+			<div class="brush_7">
+				物流编号<input type="text" class="text">
+			</div>
+			<a href="#">
+				<div class="brush_6">
+					<img src="img/search.png" />
+				</div>
+			</a>
+		</div>
+	</body>
+</html>

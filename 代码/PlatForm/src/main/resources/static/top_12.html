@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/top_12.css" />
+	</head>
+	<body>
+		<div style="width: 100%;height: 30px;margin-top:20px;background-color: white;">
+			
+		</div>
+		<div id="title"><b>配送员查询</b></div>
+		<div class="header">
+               
+        </div>
+        <div style="width: 100%;height: 20px;background-color: white;"></div>
+        
+        <!--刷选框-->
+		<div id="brush">
+			<div class="brush_5">
+				配送员<input type="text" class="text" id="collectorName">
+			</div>
+			<div class="brush_9">
+				ID<input type="text" class="text" id="collectorid">
+			</div>
+			<div class="brush_10">
+				电话<input type="text" class="text" id="phone">
+			</div>
+			<div style="width: 100%;height: 20px;background-color: white;"></div>
+        <a href="addpeisong.html"><div class="brush_3">添加配送员</div></a>
+			<a href="peisongyuan_list.html" target="con_3" id="search">
+				<div class="brush_6">
+					<img src="img/search.png" />
+				</div>
+			</a>
+		</div>
+        
+        <div class="background"></div>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script>
+        	$('#search').on('click',function(){
+        		sessionStorage.setItem("collectorName",$('#collectorName'));
+        		sessionStorage.setItem("collectorId",$('#collectorid'));
+        		sessionStorage.setItem("phone",$('#phone'));
+        	})
+        </script>
+        
+		
+		
+	</body>
+</html>

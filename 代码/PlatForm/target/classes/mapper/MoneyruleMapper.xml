@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.mapper.MoneyruleMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.model.Moneyrule">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="start" jdbcType="INTEGER" property="start" />
+    <result column="finish" jdbcType="INTEGER" property="finish" />
+    <result column="money" jdbcType="INTEGER" property="money" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, start, finish, money, type
+  </sql>
+   <select id="selectByType"  resultType="java.lang.Integer">
+    select 
+    money
+    from moneyrule
+    where type = #{0,jdbcType=VARCHAR}
+    and start &lt; #{1}
+    and finish > #{1}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from moneyrule
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from moneyrule
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wzh.model.Moneyrule">
+    insert into moneyrule (id, start, finish, 
+      money, type)
+    values (#{id,jdbcType=BIGINT}, #{start,jdbcType=INTEGER}, #{finish,jdbcType=INTEGER}, 
+      #{money,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertlist" parameterType="com.wzh.model.Moneyrule">
+    insert into moneyrule (id, start, finish, money, type)
+    <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+    values (#{id,jdbcType=BIGINT}, #{start,jdbcType=INTEGER}, #{finish,jdbcType=INTEGER}, 
+      #{money,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR})
+      </foreach>
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzh.model.Moneyrule">
+    insert into moneyrule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="start != null">
+        start,
+      </if>
+      <if test="finish != null">
+        finish,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="start != null">
+        #{start,jdbcType=INTEGER},
+      </if>
+      <if test="finish != null">
+        #{finish,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.model.Moneyrule">
+    update moneyrule
+    <set>
+      <if test="start != null">
+        start = #{start,jdbcType=INTEGER},
+      </if>
+      <if test="finish != null">
+        finish = #{finish,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.model.Moneyrule">
+    update moneyrule
+    set start = #{start,jdbcType=INTEGER},
+      finish = #{finish,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

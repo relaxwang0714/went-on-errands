@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.mapper.FlowMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.model.Flow">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="pv" jdbcType="INTEGER" property="pv" />
+    <result column="uv" jdbcType="INTEGER" property="uv" />
+    <result column="ip" jdbcType="INTEGER" property="ip" />
+    <result column="share" jdbcType="INTEGER" property="share" />
+    <result column="customer_pv" jdbcType="INTEGER" property="customerPv" />
+    <result column="collector_pv" jdbcType="INTEGER" property="collectorPv" />
+    <result column="avg_pv" jdbcType="INTEGER" property="avgPv" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, pv, uv, ip, share, customer_pv, collector_pv, avg_pv, gmt_create, gmt_modified
+  </sql>
+  <select id="searchfirst"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from flow
+    where DATE(gmt_create) = CURDATE()
+    LIMIT 1
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from flow
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from flow
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wzh.model.Flow">
+    insert into flow (id, pv, uv, ip, 
+      share, customer_pv, collector_pv, 
+      avg_pv, gmt_create, gmt_modified
+      )
+    values (#{id,jdbcType=INTEGER}, #{pv,jdbcType=INTEGER}, #{uv,jdbcType=INTEGER}, #{ip,jdbcType=INTEGER}, 
+      #{share,jdbcType=INTEGER}, #{customerPv,jdbcType=INTEGER}, #{collectorPv,jdbcType=INTEGER}, 
+      #{avgPv,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzh.model.Flow">
+    insert into flow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pv != null">
+        pv,
+      </if>
+      <if test="uv != null">
+        uv,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="share != null">
+        share,
+      </if>
+      <if test="customerPv != null">
+        customer_pv,
+      </if>
+      <if test="collectorPv != null">
+        collector_pv,
+      </if>
+      <if test="avgPv != null">
+        avg_pv,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pv != null">
+        #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="uv != null">
+        #{uv,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=INTEGER},
+      </if>
+      <if test="share != null">
+        #{share,jdbcType=INTEGER},
+      </if>
+      <if test="customerPv != null">
+        #{customerPv,jdbcType=INTEGER},
+      </if>
+      <if test="collectorPv != null">
+        #{collectorPv,jdbcType=INTEGER},
+      </if>
+      <if test="avgPv != null">
+        #{avgPv,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.model.Flow">
+    update flow
+    <set>
+      <if test="pv != null">
+        pv = #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="uv != null">
+        uv = #{uv,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        ip = #{ip,jdbcType=INTEGER},
+      </if>
+      <if test="share != null">
+        share = #{share,jdbcType=INTEGER},
+      </if>
+      <if test="customerPv != null">
+        customer_pv = #{customerPv,jdbcType=INTEGER},
+      </if>
+      <if test="collectorPv != null">
+        collector_pv = #{collectorPv,jdbcType=INTEGER},
+      </if>
+      <if test="avgPv != null">
+        avg_pv = #{avgPv,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.model.Flow">
+    update flow
+    set pv = #{pv,jdbcType=INTEGER},
+      uv = #{uv,jdbcType=INTEGER},
+      ip = #{ip,jdbcType=INTEGER},
+      share = #{share,jdbcType=INTEGER},
+      customer_pv = #{customerPv,jdbcType=INTEGER},
+      collector_pv = #{collectorPv,jdbcType=INTEGER},
+      avg_pv = #{avgPv,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

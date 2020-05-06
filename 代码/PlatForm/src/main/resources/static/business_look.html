@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/shopping_list.css" />
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table style=" border="8px">
+		<tr>
+			<td>跑腿订单ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>用户ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>跑腿员ID</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>概要</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>跑腿类型</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>起始地</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>终止地</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>跑腿费</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>下单时间</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>完成时间</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>订单状态</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>订单城市</td>
+			<td></td>
+		</tr>
+		</table>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+			var businessid =sessionStorage.getItem("bussinessID")
+			$.ajax({
+				type:"get",
+				url:"search3/"+businessid,
+				async:true,
+				success: function(result){
+					$('table').eq(0).text(result.id);
+					$('table').eq(1).text(result.userId);
+					$('table').eq(2).text(result.collectorId);
+					$('table').eq(3).text(result.brief);
+					$('table').eq(4).text(result.type);
+					$('table').eq(5).text(result.positionCreate);
+					$('table').eq(6).text(result.positionFinsih);
+					$('table').eq(7).text(result.price);
+					$('table').eq(8).text(result.gmtCreate);
+					$('table').eq(9).text(result.finshTime);
+					$('table').eq(10).text(result.status);
+					$('table').eq(11).text(result.city);
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/top_8.css" />
+	</head>
+	<body>
+		<div style="width: 100%;height: 30px;margin-top:20px;background-color: white;">
+			
+		</div>
+		<div id="title"><b>评价</b></div>
+		<div class="header">
+               
+        </div>
+        <div style="width: 100%;height: 20px;background-color: white;"></div>
+        
+        <!--刷选框-->
+		<div id="brush">
+			<div class="brush_5">
+				员工<input type="text" class="text" id="name">
+			</div>
+			<div class="brush_9">
+				工号<input type="text" class="text" id="evalutecollectorId">
+			</div>
+			<div class="brush_10">
+				从：<input type="date" class="text" id="evalutetime1">
+			</div>
+			<div class="brush_8">
+				至：<input type="date" class="text" id="evalutetime2">
+			</div>
+			<a href="peisongrepeat_list.html" target="con_2" id="search">
+				<div class="brush_6">
+					<img src="img/search.png" />
+				</div>
+			</a>
+		</div>
+        
+        <div class="background"></div>
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script>
+        	$('#search').on('click',function(){
+        		sessionStorage.setItem("evalutecollectorId",$('#evalutecollectorId'));
+        		sessionStorage.setItem("evalutetime1",$('#evalutetime1'));
+        		sessionStorage.setItem("evalutetime2",$('#evalutetime2'));
+        	})
+        </script>
+        
+		
+		
+	</body>
+</html>
+

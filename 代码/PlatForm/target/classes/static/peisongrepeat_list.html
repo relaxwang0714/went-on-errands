@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/user_list.css" />
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1" cellspacing="20"> 
+			<th>
+				<td class="th_font">评论编号</td>
+				<td class="th_font">配送员工号</td>
+				<td class="th_font">订单编号</td>
+				<td class="th_font">评论内容</td>
+				<td class="th_font">评论分数</td>
+				<td class="th_font">评论时间</td>
+			</th>
+	        <tr>  	      
+	        	<td></td>
+	            <td>0000001</td> 
+	            <td>0000001</td>
+	            <td>2018-05-22</td>
+	            <td>还是有待改进的地方</td>
+	            <td>4.7</td>    
+	        </tr>  
+	        <script src="js/jquery-3.1.1.min.js"></script>
+	        <script>
+	        	$(document).ready(function(){
+	        		var collectorId =sessionStorage.getItem('evalutecollectorId');
+	        		var time1 =sessionStorage.getItem('evalutetime2');
+	        		var time2 =sessionStorage.getItem('evalutetime2');
+	        		var data1 ={"collectorId":collectorId,
+	        		"time1":time1,
+	        		"time2":time2	
+	        		}
+	        		$.ajax({
+	        			type:"post",
+	        			url:"evaluate/search",
+	        			contentType : 'application/json;charset=UTF-8',
+	        			async:true,
+	        			data:JSON.stringify(data1),
+	        			dataType:"json",
+	        			success:function(result){
+	        			$('tr').eq(0).nextAll().remove();
+	        			$.each(result, function(result,item) {
+	        				var con="";
+	        				con +=' <tr> <td></td><td>'+item.id+'</td> <td>'+item.collectorId+'</td><td>'+item.businessId+'</td>'
+	        				con +='<td>'+item.evaluateText+'</td><td>'+item.evaluate+'</td><td>'+item.gmtCreate+'</td></tr>'   
+	          				$('table').append(con);
+	        				
+	        			});
+	        			},
+	        			error:function(){
+	        				
+	        			}
+	        		});
+	        	})
+	        </script>
+	</body>
+</html>

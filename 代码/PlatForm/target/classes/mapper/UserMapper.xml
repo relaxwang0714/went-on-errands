@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.model.User">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="money" jdbcType="DOUBLE" property="money" />
+    <result column="chengjiao" jdbcType="DOUBLE" property="chengjiao" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="success" jdbcType="INTEGER" property="success" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, password, phone, email, money, chengjiao, gmt_create, gmt_modified, 
+    success
+  </sql>
+  <select id="selectAll" parameterType="com.wzh.model.User" resultMap="BaseResultMap">
+  select 
+    <include refid="Base_Column_List" />
+    from user
+     LIMIT 0,10
+    </select>
+  <select id="selectSelective" parameterType="com.wzh.model.User" resultMap="BaseResultMap">
+  select 
+    <include refid="Base_Column_List" />
+    from user
+     <where>
+      <if test="userName != null and userName !=''">
+       and user_name = #{userName,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+       and password = #{password,jdbcType=VARCHAR}
+      </if>
+      <if test="phone != null and phone !=''" >
+       and phone = #{phone,jdbcType=VARCHAR}
+      </if>
+      <if test="email != null">
+       and email = #{email,jdbcType=VARCHAR}
+      </if>
+      <if test="money != null">
+       and money = #{money,jdbcType=DOUBLE}
+      </if>
+      <if test="chengjiao != null">
+       and chengjiao = #{chengjiao,jdbcType=DOUBLE}
+      </if>
+      <if test="gmtCreate != null">
+       and gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="gmtModified != null">
+       and gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+      </if>
+      <if test="success != null">
+       and success = #{success,jdbcType=INTEGER}
+      </if>
+      <if test="id != null and id !=0">
+       and id = #{id,jdbcType=BIGINT}
+      </if>
+    </where>
+    
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wzh.model.User">
+    insert into user (id, user_name, password, 
+      phone, email, money, 
+      chengjiao, gmt_create, gmt_modified, 
+      success)
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{money,jdbcType=DOUBLE}, 
+      #{chengjiao,jdbcType=DOUBLE}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{success,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzh.model.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="chengjiao != null">
+        chengjiao,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="success != null">
+        success,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="chengjiao != null">
+        #{chengjiao,jdbcType=DOUBLE},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="success != null">
+        #{success,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.model.User">
+    update user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="chengjiao != null">
+        chengjiao = #{chengjiao,jdbcType=DOUBLE},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="success != null">
+        success = #{success,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.model.User">
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DOUBLE},
+      chengjiao = #{chengjiao,jdbcType=DOUBLE},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      success = #{success,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<form id="uploadForm" enctype="multipart/form-data">  
+    文件:<input id="file" type="file" name="file"/>  
+    <input name="number" type="text"/>
+    <input name="Brief" type="text"/>
+</form>  
+<button id="upload">上传文件</button>  
+</body>  
+<script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">  
+    $(document).ready(function () {  
+        $("#upload").click(function () {  
+            var formData = new FormData($('#uploadForm')[0]);  
+            $.ajax({  
+                type: 'post',  
+                url: "upload/guanggao",  
+                data: formData,  
+                cache: false,  
+                processData: false,  
+                contentType: false,  
+            success: function (data) { 
+                alert(data);  
+              },
+            error: function () {  
+                alert("上传失败");  
+            }  
+        });  
+    });  
+    });
+</script>  
+</html>

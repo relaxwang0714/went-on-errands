@@ -1,0 +1,183 @@
+	* {
+    padding: 0px;
+    margin: 0px;
+	}
+	a{
+		text-decoration: none;
+	}
+	/*订单*/
+	#wait_top{
+		position: relative;
+		width: 100%;
+		height: 55px;
+		margin-top: 5px;
+		background-color: #F1F2F8;
+		border-top: 1px solid #DBDDE5;
+		border-bottom: 1px solid #DBDDE5;
+	}
+	#wait_top .top_left{
+		position: absolute;
+		top: 19px;
+		left: 50px;
+		font-size: 15px;
+		letter-spacing: 1px;
+	}
+	#wait_top .top_left input{
+		position: absolute;
+		top:1.5px;
+		width: 18px;
+		height: 18px;
+		-webkit-appearance:none;
+		background-color: #B7B7BA;
+	}
+	#wait_top .top_left input:checked{-webkit-appearance:checkbox;background-color: #B7B7BA;}
+	#wait_top .top_right .top_right_1{
+		position: absolute;
+		top: 9px;
+		left: 135px;
+		width: 88px;
+		height: 38px;
+		color: black;
+		text-align: center;
+		line-height: 40px;
+		background-color: white;
+		border: 1px solid #DBDDE5;
+	}
+	#wait_top .top_right .top_right_2{
+		position: absolute;
+		top: 9px;
+		left: 250px;
+		width: 88px;
+		height: 38px;
+		color: black;
+		text-align: center;
+		line-height: 40px;
+		background-color: white;
+		border: 1px solid #DBDDE5;
+	}
+	#wait_top .top_right .top_right_3{
+		position: absolute;
+		top: 9px;
+		left: 365px;
+		width: 88px;
+		height: 38px;
+		color: black;
+		text-align: center;
+		line-height: 40px;
+		background-color: white;
+		border: 1px solid #DBDDE5;
+	}
+	.header {
+    height: 56px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-bottom: 1px solid #585958;
+}
+.top_nav1,.top_nav2,.top_nav3{
+	width: 120px;
+    height: 52px;
+}
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 80px;
+    float: left;
+    position: relative;/*子元素absol*/
+}
+ul img{
+    position: relative;
+    top: 3px;
+}
+ul li {
+    width: 120px;
+    height: 56px;
+    text-align: center;
+    float: left;
+}
+ul li a {
+    color: black;
+    text-decoration: none;
+    line-height: 56px;
+}
+.top_nav1,.top_nav2,.top_nav3{
+	width: 120px;
+    height: 52px;
+}
+ul a:hover{
+    color: #364154;
+}
+.move{
+	
+    height: 4px;
+    width: 110px;
+    border-top: 4px solid #364154;/*只需要将上边显示出来*/
+    position: absolute;
+    left: -200px;
+    top: 52px;
+    transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+    -webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+    -moz-transition: left .2s ease-in-out 0s;/*firefox*/
+    -o-transition: left .2s ease-in-out 0s;/*opera*/
+}
+li:nth-child(1):hover~ .move{    /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+    left: 3px;
+}
+li:nth-child(2):hover~ .move{
+    left: 125px;
+}
+li:nth-child(3):hover~ .move{
+    left: 245px;
+}
+li:nth-child(4):hover~ .move{
+    left: 365px;
+}
+li:nth-child(5):hover~ .move{
+    left: 486px;
+}
+li:nth-child(6):hover~ .move{
+    left: 605px;
+}
+#add_waste_2{
+		position: relative;
+		width: 80%;
+		height: 100px;
+		/*background-color: yellow;*/
+}
+.add_left{
+		position: absolute;
+		left: 90px;
+		width: 100px;
+		height: 100%;
+		font-family: "宋体";
+		font-size: 19px;
+		font-weight: 600;
+		line-height: 100px;
+		background-color: white;
+	}
+	.add_right{
+		position: absolute;
+		left: 210px;
+		width: 400px;
+		height: 100%;
+		/*background-color: greenyellow;*/
+	}
+.add_left_2{
+		position: absolute;
+		left: 90px;
+		width: 100px;
+		height: 100%;
+		font-family: "宋体";
+		font-size: 19px;
+		font-weight: 600;
+		line-height: 70px;
+		background-color: white;
+	}
+	#add_waste_2 .add_right input{
+		position: absolute;
+		top: 5px;
+		width: 300px;
+		height: 60px;
+		font-size: 18px;
+		border: 1.2px solid #8A8B8A;
+	}	

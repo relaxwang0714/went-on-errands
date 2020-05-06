@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.mapper.CollectorMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.model.Collector">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="collector_name" jdbcType="VARCHAR" property="collectorName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="is_work" jdbcType="VARCHAR" property="isWork" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="evaluate" jdbcType="DECIMAL" property="evaluate" />
+    <result column="pay" jdbcType="INTEGER" property="pay" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="id_pic" jdbcType="VARCHAR" property="idPic" />
+    <result column="is_check" jdbcType="VARCHAR" property="isCheck" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+    <result column="success" jdbcType="INTEGER" property="success" />
+    <result column="fail" jdbcType="INTEGER" property="fail" />
+    <result column="group" jdbcType="INTEGER" property="group" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="transport" jdbcType="VARCHAR" property="transport" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, collector_name, password, phone, email, is_work, position, evaluate, pay, id_card, 
+    id_pic,total, success, fail, group, type, gmt_create, gmt_modified, transport
+  </sql>
+  <select id="searchAll" parameterType="com.wzh.model.Collector" resultMap="BaseResultMap">
+    select 
+    *
+    from collector
+     <where>
+      <if test="collectorName != null and collectName !=''">
+        and collector_name = #{collectorName,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null">
+        and password = #{password,jdbcType=VARCHAR}
+      </if>
+      <if test="phone != null and phone !=''">
+        and phone = #{phone,jdbcType=VARCHAR}
+      </if>
+      <if test="email != null">
+        and email = #{email,jdbcType=VARCHAR}
+      </if>
+      <if test="isWork != null">
+        and is_work = #{isWork,jdbcType=VARCHAR}
+      </if>
+      <if test="position != null">
+        and position = #{position,jdbcType=VARCHAR}
+      </if>
+      <if test="evaluate != null">
+        and evaluate = #{evaluate,jdbcType=DECIMAL}
+      </if>
+      <if test="pay != null">
+        and pay = #{pay,jdbcType=INTEGER}
+      </if>
+      <if test="idCard != null">
+        and id_card = #{idCard,jdbcType=VARCHAR}
+      </if>
+      <if test="idPic != null">
+        and id_pic = #{idPic,jdbcType=VARCHAR}
+      </if>
+      <if test="isCheck != null">
+        anis_check = #{isCheck,jdbcType=VARCHAR}
+      </if>
+      <if test="total != null">
+        and total = #{total,jdbcType=INTEGER}
+      </if>
+      <if test="success != null">
+        and success = #{success,jdbcType=INTEGER}
+      </if>
+      <if test="fail != null">
+        and fail = #{fail,jdbcType=INTEGER}
+      </if>
+      <if test="group != null">
+        and group = #{group,jdbcType=INTEGER}
+      </if>
+      <if test="type != null">
+        and type = #{type,jdbcType=VARCHAR}
+      </if>
+      <if test="gmtCreate != null">
+        and gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="gmtModified != null">
+        and gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+      </if>
+      <if test="transport != null">
+        and transport = #{transport,jdbcType=VARCHAR}
+      </if>
+       <if test="id != null and id != 0">
+        and id = #{id,jdbcType=INTEGER}
+      </if>
+    </where>  
+  </select>
+  <select id="searchByDesc" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from collector
+    order by success desc
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    *
+    from collector
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from collector
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wzh.model.Collector">
+    insert into collector (id, collector_name, password, 
+      phone, email, is_work, 
+      position, evaluate, pay, 
+      id_card, id_pic, is_check, 
+      total, success, fail, 
+      group, type, gmt_create, 
+      gmt_modified, transport)
+    values (#{id,jdbcType=INTEGER}, #{collectorName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{isWork,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{evaluate,jdbcType=DECIMAL}, #{pay,jdbcType=INTEGER}, 
+      #{idCard,jdbcType=VARCHAR}, #{idPic,jdbcType=VARCHAR}, #{isCheck,jdbcType=VARCHAR}, 
+      #{total,jdbcType=INTEGER}, #{success,jdbcType=INTEGER}, #{fail,jdbcType=INTEGER}, 
+      #{group,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{transport,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzh.model.Collector">
+    insert into collector
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="collectorName != null">
+        collector_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="isWork != null">
+        is_work,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="evaluate != null">
+        evaluate,
+      </if>
+      <if test="pay != null">
+        pay,
+      </if>
+      <if test="idCard != null">
+        id_card,
+      </if>
+      <if test="idPic != null">
+        id_pic,
+      </if>
+      <if test="isCheck != null">
+        is_check,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="success != null">
+        success,
+      </if>
+      <if test="fail != null">
+        fail,
+      </if>
+      <if test="group != null">
+        group,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="transport != null">
+        transport,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="collectorName != null">
+        #{collectorName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isWork != null">
+        #{isWork,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluate != null">
+        #{evaluate,jdbcType=DECIMAL},
+      </if>
+      <if test="pay != null">
+        #{pay,jdbcType=INTEGER},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idPic != null">
+        #{idPic,jdbcType=VARCHAR},
+      </if>
+      <if test="isCheck != null">
+        #{isCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+      <if test="success != null">
+        #{success,jdbcType=INTEGER},
+      </if>
+      <if test="fail != null">
+        #{fail,jdbcType=INTEGER},
+      </if>
+      <if test="group != null">
+        #{group,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transport != null">
+        #{transport,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.model.Collector">
+    update collector
+    <set>
+      <if test="collectorName != null">
+        collector_name = #{collectorName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isWork != null">
+        is_work = #{isWork,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluate != null">
+        evaluate = #{evaluate,jdbcType=DECIMAL},
+      </if>
+      <if test="pay != null">
+        pay = #{pay,jdbcType=INTEGER},
+      </if>
+      <if test="idCard != null">
+        id_card = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="idPic != null">
+        id_pic = #{idPic,jdbcType=VARCHAR},
+      </if>
+      <if test="isCheck != null">
+        is_check = #{isCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        total = #{total,jdbcType=INTEGER},
+      </if>
+      <if test="success != null">
+        success = #{success,jdbcType=INTEGER},
+      </if>
+      <if test="fail != null">
+        fail = #{fail,jdbcType=INTEGER},
+      </if>
+      <if test="group != null">
+        group = #{group,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="transport != null">
+        transport = #{transport,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.model.Collector">
+    update collector
+    set collector_name = #{collectorName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      is_work = #{isWork,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      evaluate = #{evaluate,jdbcType=DECIMAL},
+      pay = #{pay,jdbcType=INTEGER},
+      id_card = #{idCard,jdbcType=VARCHAR},
+      id_pic = #{idPic,jdbcType=VARCHAR},
+      is_check = #{isCheck,jdbcType=VARCHAR},
+      total = #{total,jdbcType=INTEGER},
+      success = #{success,jdbcType=INTEGER},
+      fail = #{fail,jdbcType=INTEGER},
+      group = #{group,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      transport = #{transport,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+
+</mapper>

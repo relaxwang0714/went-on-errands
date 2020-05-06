@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+		<link rel="stylesheet" href="css/resource_list.css" />
+	</head>
+	<body>
+		<!--柱状图-->
+		<div id="bar">
+			<canvas id="myChart" width="600" height="120"></canvas>
+		</div>
+		
+		<div id="resource_con">
+			<table	 cellspacing="0">
+				<tr class="t_3" style="height: 80px;">
+					<td class="td_font"><b>时间</b></td>
+					<td class="td_font"><b>总单数</b></td>
+					<td class="td_font"><b>成交订单数</b></td>
+					<td class="td_font"><b>失败订单数</b></td>
+					<td class="td_font"><b>收入</b></td>
+					<td class="td_font"><b>配送费</b></td>
+				</tr>
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr> 
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr> 
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+			</table>
+		</div>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			var ctx = document.getElementById("myChart").getContext('2d');
+			var length = 7;
+			var i = 0;
+			var j = ",";
+			$.ajax({
+				type:"get",
+				url:"statistics/year",
+				async:true,
+				dataType: "json",//预期服务器返回的数据类型
+				success:function(result1){
+					var data1 = [0,0,0,0,0]
+					var data2 = [0,0,0,0,0]
+					var data3 = [0,0,0,0,0]
+					var i =0;
+					$.each(result1, function(result1,item1) {
+						data1[i] =item1.success;
+						data2[i] =item1.fail;
+						data3[i] =item1.business;
+						i++;
+						
+					})
+					
+					var myChart = new Chart(ctx, {
+			    type: 'bar',	//柱状图改成bar
+			    data: {
+			        labels: [ "2014","2015","2016","2017","2018"],
+			        datasets: [{
+			            label: '成功订单数',
+			            data: data1,
+			            backgroundColor: [
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			                'rgba(61, 185, 220, 0.7)',
+			            ],
+			            borderColor: [
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+							'rgba(61, 185, 220, 0.4)',
+			            ],
+			            borderWidth: 1
+			        },
+			       	{
+			            label: '失败订单数',
+			            data: data2,
+			            backgroundColor: [
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			                'rgba(27, 185, 154, 0.6)',
+			            ],
+			            borderColor: [
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+							'rgba(27, 185, 154, 0.3)',
+			            ],
+			            borderWidth: 1
+			        },
+			        {
+			            label: '总订单数',
+			            data: data3,
+			            backgroundColor: [
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			            ],
+			            borderColor: [
+							'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			                'rgba(170, 173, 175, 0.3)',
+			            ],
+			            borderWidth: 1
+			        }
+			        ]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+			});
+					
+				},
+				error:function(){
+					alert('error')
+				}
+				
+			});
+			
+				$.ajax({
+				type:"get",
+				url:"statistics/desc",
+				async:true,
+				dataType: "json",//预期服务器返回的数据类型
+				success:function(result){
+					$('tr').eq(0).nextAll().remove();
+					$.each(result, function(result,item) {
+						var con ="";
+							con +='<tr class="t_2"><td>'+item.gmtCreate+'</td><td>'+item.business+'</td><td>'+item.success+'</td><td>'+item.fail+'</td>'
+		           			con += '<td>'+item.income+'</td><td>'+item.expend+'</td></tr>'
+		           	$('table').append(con);
+					});
+					
+				},
+				error:function(){
+					alert('error')
+				}
+				
+			});
+		})	
+			
+		</script>
+	</body>
+</html>

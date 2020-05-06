@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/logistics_list.css" />
+		<title></title>
+	</head>
+	<body>
+		
+		<!--订单-->
+		<div id="wait_top">
+			<div class="top_left"><input type="checkbox" onclick="swapCheck()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全选</div>
+			<div class="top_right">
+				<a href="#"><div class="top_right_1">批量分类</div></a>
+			</div>
+		</div>
+		
+		<table border="1" cellspacing="20"> 
+			<th>
+				<td class="th_font">物流编号</td>
+				<td class="th_font">出发地</td>
+				<td class="th_font">目的地</td>
+				<td class="th_font">派送人</td>
+				<td class="th_font">创建时间</td>
+				<td class="th_font">State</td>
+			</th>
+	        <tr>  
+	            <td class="tr_input"><input type="checkbox" /></td>  
+	            <td>January</td>  
+	            <td>dahaodh1da</td>  
+	            <td>03:21AM</td> 
+	            <td>China</td>
+	            <td>13452678973</td>
+	            <td><a href="#"><div style="float:left;width:45px;height: 23px;background-color: #33AAFF;text-align: center;line-height: 23px;color: white;margin-top: 5px;">查看</div></a><a href="#"><div style="float:left;width:45px;height: 23px;background-color: #33AAFF;text-align: center;line-height: 23px;color: white;margin-top: 5px;margin-left: 15px;">修改</div></a></td>
+	        </tr>  
+	        <tr>  
+	            <td  class="tr_input"><input type="checkbox" /></td>  
+	            <td>February</td>  
+	            <td>dadadqwj1w3ya</td>  
+	            <td>03:21AM</td> 
+	            <td>USA</td>
+	            <td>13457658973</td>
+	            <td><a href="#"><div style="float:left;width:45px;height: 23px;background-color: #33AAFF;text-align: center;line-height: 23px;color: white;margin-top: 5px;">查看</div></a><a href="#"><div style="float:left;width:45px;height: 23px;background-color: #33AAFF;text-align: center;line-height: 23px;color: white;margin-top: 5px;margin-left: 15px;">修改</div></a></td>
+	        </tr>  
+	    </table>  
+		
+		<script type="text/javascript"  
+        src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>  
+  
+    <script type="text/javascript">  
+        //checkbox 全选/取消全选  
+        var isCheckAll = false;  
+        function swapCheck() {  
+            if (isCheckAll) {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = false;  
+                });  
+                isCheckAll = false;  
+            } else {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = true;  
+                });  
+                isCheckAll = true;  
+            }  
+        }  
+    </script>  
+	</body>
+</html>

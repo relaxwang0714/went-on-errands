@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/add_waste.css" />
+		<script src="layui/layui.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all"/>
+</head>
+	<body>
+		<form action="business/export" method="post">
+		<div class="background"></div>
+		<!--<div id="add_waste_1">
+			<div class="add_left_2">
+				订单状态
+			</div>
+			<div class="add_right">
+				<select name="status" lay-verify="" value="" placeholder="请选择设备标签">
+					<option value="">&nbsp;&nbsp;&nbsp;请选择订单状态</option>
+					<option value="0">&nbsp;&nbsp;&nbsp;抢单中</option>
+					<option value="1">&nbsp;&nbsp;&nbsp;待取货</option>
+					<option value="2">&nbsp;&nbsp;&nbsp;配送中</option>
+					<option value="3">&nbsp;&nbsp;&nbsp;已完成</option>
+				</select> 
+			</div>
+			</div>
+		
+		<div id="add_waste_1">
+			<div class="add_left_2">
+				订单类别
+			</div>
+			<div class="add_right">
+				<select name="type" lay-verify="" value="" placeholder="请选择设备标签">
+					<option value="">&nbsp;&nbsp;&nbsp;请选择订单类别</option>
+					<option value="帮买">&nbsp;&nbsp;&nbsp;帮买</option>
+					<option value="帮送">&nbsp;&nbsp;&nbsp;帮送</option>
+					<option value="帮取">&nbsp;&nbsp;&nbsp;帮取</option>
+				</select>  
+			</div>
+		</div>-->
+		<div id="add_waste_2">
+			<div class="add_left_2">
+				配送员姓名
+			</div>
+			<div class="add_right">
+				<input type="text" name="collectorName">
+			</div>
+			</div>
+			<div id="add_waste_2">
+			<div class="add_left_2">
+				密码
+			</div>
+			<div class="add_right">
+				<input type="text" name="passoword">
+			</div>
+			</div>
+			<div id="add_waste_2">
+			<div class="add_left_2">
+				电话
+			</div>
+			<div class="add_right">
+				<input type="text" name="phone">
+			</div>
+			</div>
+		
+		<div id="add_waste_2">
+			<div class="add_left_2">
+				工作地点
+			</div>
+			<div class="add_right">
+				<input type="text" name="position">
+			</div>
+			
+		</div>
+		<div id="add_waste_2">
+			<div class="add_left_2">
+				邮箱
+			</div>
+			<div class="add_right">
+				<input type="text" name="email">
+			</div>
+			
+		</div>
+		
+		<!--<div id="add_waste_4">
+			<div class="add_left_2">
+				截止时间
+			</div>
+			<div class="add_right">
+				<input type="date" class="add_con" name="time2">
+			</div>
+		</div>-->
+		
+		<!--<div id="add_waste_6">
+			<div class="add_left_2">
+				废品详情
+			</div>
+			<div class="add_right">
+				<input type="text" class="add_con_2">
+			</div>
+		</div>-->
+		
+		</form>
+		<a id="submit" href="summary.html"><div  class="brush_7" style="text-align: center;">确定</div></a>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+			$('#submit').on('click',function(){
+				$.ajax({
+				type:"get",
+				url:"collector/insert",
+				contentType : 'application/json;charset=UTF-8',
+				data: $("form").serialize(),
+				async:true,
+				success:function(result){
+					
+				},
+				error:function(){
+					
+				}
+			});
+			})
+				
+//			$.ajax({
+//				type:"get",
+//				url:"",
+//				async:true
+//			});
+		//	}
+		</script>
+	</body>
+</html>

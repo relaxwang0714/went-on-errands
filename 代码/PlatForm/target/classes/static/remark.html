@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/user_list.css" />
+		<title></title>
+	</head>
+	<style>
+		.look{width:55px;
+		height: 23px;
+		background-color: #33AAFF;
+		text-align: center;
+		line-height: 23px;
+		color: white;
+		margin-top: 5px;
+			
+		}
+	</style>
+	<body>
+		
+		<table border="1" cellspacing="20"> 
+			<th>
+				<td class="th_font">评论编号</td>
+				<td class="th_font">用户ID</td>
+				<td class="th_font">订单编号</td>
+				<td class="th_font">配送员</td>
+				<td class="th_font">评论时间</td>
+				<td class="th_font">评论内容</td>
+				<td class="th_font">回复</td>
+				<td class="th_font">分数</td>
+				<td class="th_font" style="padding-left: 10px;">操作</td>
+			</th>
+	        <tr>  	      
+	        	<td></td>
+	            <td>0000001</td> 
+	            <td>0000001</td>
+	            <td>2018-05-22</td>
+	            <td>还是有待改进的地方</td>
+	            <td>勉强还过的去吧</td>
+	            <td>勉强还过的去吧</td>
+	            <td></td>
+	            <td>4.7</td>
+	            <td><a  target="con"><div class="look">回复</div></a></td>
+	        </tr>  
+	        <tr>     
+	        	<td></td>
+	            <td>0000002</td>
+	            <td>0000001</td>
+	            <td>13457658973</td>
+	             <td>勉强还过的去吧</td>
+	             <td>勉强还过的去吧</td>
+	             <td>勉强还过的去吧</td>
+	             <td></td>
+	            <td>4.2</td>
+	            <td><a target="con"><div class="look">回复</div></a></td>
+	        </tr>  
+	    </table>  
+		
+		<script type="text/javascript"  
+        src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>  
+  
+    <script type="text/javascript">  
+    	$(document).ready(function(){
+    		
+    		var data1 ={};
+    		$.ajax({
+    			type:"post",
+    			url:"evaluate/search",
+    			contentType : 'application/json;charset=UTF-8',
+    			async:true,
+    			data:JSON.stringify(data1),
+    			success:function(result){
+    				$('tr').eq(0).nextAll().remove();
+    				$.each(result, function(index,item) {
+    					var con="";
+						con +=' <tr> <td></td><td>'+item.id+'</td><td>'+item.userId+'</td><td>'+item.businessId+'</td><td>'+item.userId+'</td>'
+	        			con +='<td>'+item.evaluateText+'</td><td>'+item.evaluate+'</td><td>'+item.repeat+'</td><td>'+item.gmtCreate+'</td>' 
+						con+='<td><a  target="con"><div class="look">回复</div></a></td></tr> '
+						$('table').append(con);
+    				});
+    			}
+    			
+    		});
+		$('table').on('click','a',function(){
+			var name=prompt("请输入回复","");
+			var repeat =$(this).parent().prev().prev().text(name);
+			var id =$(this).parent().siblings().eq(1).text();
+			alert($(this).parent().siblings().eq(1).text());
+			$.ajax({
+				type:"get",
+				async:true,
+				url:"repeat/"+id+"/"+repeat,
+				
+				dataType:"json",
+				success: function(){
+					alert('回复成功！')
+				},
+				error: function(){
+					
+				}
+			});
+			
+		})
+	            
+	            
+		
+    		
+    	})
+    		
+    	
+        //checkbox 全选/取消全选  
+        var isCheckAll = false;  
+        function swapCheck() {  
+            if (isCheckAll) {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = false;  
+                });  
+                isCheckAll = false;  
+            } else {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = true;  
+                });  
+                isCheckAll = true;  
+            }  
+        }  
+    </script>  
+	</body>
+	</html>

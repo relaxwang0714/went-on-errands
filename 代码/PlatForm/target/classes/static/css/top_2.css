@@ -1,0 +1,296 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    min-width: 1100px;
+    background-color: #F1F2F8;
+}
+.header {
+    height: 56px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-bottom: 1px solid #585958;
+}
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-left: 80px;
+    float: left;
+    position: relative;/*子元素absol*/
+}
+ul img{
+    position: relative;
+    top: 3px;
+}
+ul li {
+    width: 120px;
+    height: 56px;
+    text-align: center;
+    float: left;
+}
+ul li a {
+    color: black;
+    text-decoration: none;
+    line-height: 56px;
+}
+.top_nav1,.top_nav2,.top_nav3{
+	width: 120px;
+    height: 52px;
+}
+ul a:hover{
+    color: #364154;
+}
+.move{
+	
+    height: 4px;
+    width: 110px;
+    border-top: 4px solid #364154;/*只需要将上边显示出来*/
+    position: absolute;
+    left: -200px;
+    top: 52px;
+    transition: left .2s ease-in-out 0s;/*包含四个过度属性：执行变换属性、执行时间、速率、延迟*/
+    -webkit-transition: left .2s ease-in-out 0s;/*chrome和safari*/
+    -moz-transition: left .2s ease-in-out 0s;/*firefox*/
+    -o-transition: left .2s ease-in-out 0s;/*opera*/
+}
+li:nth-child(1):hover~ .move{    /*li元素的父元素的第一个子元素，当鼠标停留其上时，move元素的left属性改变*/
+    left: 3px;
+}
+li:nth-child(2):hover~ .move{
+    left: 125px;
+}
+li:nth-child(3):hover~ .move{
+    left: 245px;
+}
+li:nth-child(4):hover~ .move{
+    left: 365px;
+}
+li:nth-child(5):hover~ .move{
+    left: 486px;
+}
+li:nth-child(6):hover~ .move{
+    left: 605px;
+}
+
+.out_order{
+	position: absolute;
+	top: 42px;
+	right: 45px;
+	width: 150px;
+	height: 35px;
+	color: white;
+	text-align: center;
+	line-height: 35px;
+	text-decoration: none;
+	background-color: #354053;
+}
+	a{
+		text-decoration: none;
+	}
+	
+	/*订单*/
+	#wait_top{
+		position: relative;
+		width: 100%;
+		height: 55px;
+		background-color: #F1F2F8;
+		border-bottom: 1px solid #DBDDE5;
+	}
+	#wait_top .top_left{
+		position: absolute;
+		top: 18px;
+		left: 50px;
+	}
+	#wait_top .top_right .top_right_1{
+		position: absolute;
+		top: 9px;
+		left: 100px;
+		width: 80px;
+		height: 40px;
+		color: white;
+		text-align: center;
+		line-height: 40px;
+		background-color: #354053;
+	}
+	#wait_top .top_right .top_right_2{
+		position: absolute;
+		top: 9px;
+		left: 182px;
+		width: 80px;
+		height: 40px;
+		color: black;
+		text-align: center;
+		line-height: 40px;
+		background-color: white;
+	}
+	#wait_top .top_right .top_right_3{
+		position: absolute;
+		top: 9px;
+		left: 264px;
+		width: 80px;
+		height: 40px;
+		color: black;
+		text-align: center;
+		line-height: 40px;
+		background-color: white;
+	}
+	
+	.background{
+		width: 100%;
+		height: 5px;
+		background-color: white;
+	}
+
+	/*筛选框*/
+	#brush{
+		position: relative;
+		width: 100%;
+		height: 140px;
+		background-color: #F1F2F8;
+		border-bottom: 1px solid #DBDDE5;
+	}
+	.brush_1{
+		position: absolute;
+		top: 8px;
+		left: 50px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_2{
+		position: absolute;
+		top: 8px;
+		left: 300px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_3{
+		position: absolute;
+		top: 8px;
+		left: 550px;
+		width: 350px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_4{
+		position: absolute;
+		top: 72px;
+		left: 50px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_5{
+		position: absolute;
+		top: 72px;
+		left: 300px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_7{
+		position: absolute;
+		top: 8px;
+		left: 900px;
+		width: 245px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_8{
+		position: absolute;
+		top: 8px;
+		left: 1170px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_9{
+		position: absolute;
+		top: 72px;
+		left: 550px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_10{
+		position: absolute;
+		top: 72px;
+		left: 800px;
+		width: 225px;
+		height: 60px;
+		line-height: 60px;
+		/*background-color: red;*/
+	}
+	.brush_6{
+		position: absolute;
+		top: 87px;
+		left: 1030px;
+		width: 70px;
+		height: 30px;
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 8px;
+	}
+	.brush_1 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 40px;
+	}
+	.brush_2 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 15px;
+	}
+	.brush_3 .text_1{
+		width: 100px;
+		height: 30px;
+		margin-left: 15px;
+		margin-right: 10px;
+	}
+	.brush_3 .text_2{
+		width: 100px;
+		height: 30px;
+		margin-left: 10px;
+	}
+	.brush_4 input{
+		width: 125px;
+		height: 30px;
+		margin-left: 31px;
+	}
+	select{
+		width: 125px;
+		height: 30px;
+		margin-left: 15px;
+		color: gray;
+		background-color: white;
+	}
+	select option{
+		color: black;
+	}
+	.brush_7 input{
+		width: 135px;
+		height: 30px;
+		margin-left: 15px;
+	}
+	.brush_8 input{
+		width: 135px;
+		height: 30px;
+		margin-left: 15px;
+	}
+	.brush_6 img{
+		width: 55px;
+		height: 25px;
+		margin-top: 3px;
+		margin-left: 9px;
+	}

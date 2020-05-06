@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/user_list.css" />
+		<title></title>
+		<style>
+			.look{
+				width:55px;
+				height: 23px;
+				background-color: #33AAFF;
+				text-align: center;
+				line-height: 23px;
+				color: white;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<table border="1" cellspacing="20" id="user_list"> 
+			<th>
+				<td class="th_font" style="padding-left: 50px;">用户名</td>
+				<td class="th_font">用户ID</td>
+				<td class="th_font">联系号码</td>
+				<td class="th_font">成交订单数</td>
+				<td class="th_font">成交额</td>
+				<td class="th_font" style="padding-left: 10px;">历史订单</td>
+			</th>
+	      
+	        
+	    </table>  
+		
+		<script type="text/javascript"  
+        src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>  
+  
+    <script type="text/javascript">  
+    	$(document).ready(function(){
+    	var userName =sessionStorage.getItem("userName");
+        var userid =sessionStorage.getItem("userid");
+        var phone =sessionStorage.getItem("phone");	
+    	var user ={ "userName":userName,
+    				"id":userid,
+    				"phone":phone
+    			}
+		
+    	$.ajax({
+    		type:"post",
+    		url:"customer/search",
+    		async:true,
+    		contentType : 'application/json;charset=UTF-8',
+    		data:JSON.stringify(user),
+    		dataType: "json",
+    		success:function(result){
+    			$('tr').eq(0).nextAll().remove();
+    			$.each(result, function(index,item){	
+    			var con ='';
+    			con+='<tr> <td class="tr_input"><input type="checkbox" /></td>'
+	            con+='<td class="tr_td">'+item.userName+'</td> '
+	            con+='<td>'+item.id+'</td>  <td>'+item.phone+'</td><td>'+item.chengjiao+'</td><td>'+item.money+'</td>'
+	            con+='<td><a href="userInfo.html" target="con"><div class="look">查看</div></a></td>'
+	        	con+='</tr>'
+    			$('#user_list').append(con);
+    			});
+    		},
+    		error:function(){
+    			
+    		}
+    		
+    	});
+    });
+        //checkbox 全选/取消全选  
+        var isCheckAll = false;  
+        function swapCheck() {  
+            if (isCheckAll) {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = false;  
+                });  
+                isCheckAll = false;  
+            } else {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = true;  
+                });  
+                isCheckAll = true;  
+            }  
+        }  
+    </script>  
+	</body>
+</html>

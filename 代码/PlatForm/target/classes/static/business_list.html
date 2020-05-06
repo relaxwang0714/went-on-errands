@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/shopping_list.css" />
+		<title></title>
+		<style>
+			.look1{
+				width:55px;
+				height: 23px;
+				background-color: #33AAFF;
+				text-align: center;
+				line-height: 23px;
+				color: white;
+				margin-top: 5px;
+			}
+			.look2{
+				width:55px;
+				height: 23px;
+				background-color: #CC3300;
+				text-align: center;
+				line-height: 23px;
+				color: white;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--订单-->
+		<div id="wait_top">
+			<div class="top_left"><input type="checkbox" onclick="swapCheck()" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全选</div>
+			<div class="top_right">
+				<a href="#"><div class="top_right_1">批量分类</div></a>
+				<a href="#"><div class="top_right_2">批量下架</div></a>
+				<a href="#"><div class="top_right_3">批量删除</div></a>
+			</div>
+		</div>
+		
+			<table border="1" cellspacing="20" id="table_list">
+				<th>
+					<td class="th_font">订单编号</td>
+					<td class="th_font">跑腿类型</td>
+					<td class="th_font">回收员</td>
+					<td class="th_font">下单时间</td>
+					<td class="th_font">跑腿费</td>
+					<td class="th_font">状态</td>
+					<td class="th_font">备注</td>
+					<td class="th_font">操作</td>
+				</th>
+
+
+			</table>
+		
+	</body>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		var id = sessionStorage.getItem("id");
+		var collectorId = sessionStorage.getItem("collectorid");
+		var userId = sessionStorage.getItem("userid");
+		var time1 =	sessionStorage.getItem("time1");
+		var time2 =	sessionStorage.getItem("time2");
+		var phone =	sessionStorage.getItem("phone");
+		var type = sessionStorage.getItem("type");
+		var status = sessionStorage.getItem("status");
+		var businesspojo ={
+			"id":id,
+			"collectorId":id,
+			"userId":userId,
+			"time1":time1,
+			"time2":time2,
+			"phone":phone,
+			"type":type,
+			"status":status
+		}
+		$.ajax({
+			type:"post",
+    		url:"business/searchpojo",
+    		async:true,
+    		contentType : 'application/json;charset=UTF-8',
+    		data:JSON.stringify(businesspojo),
+    		dataType: "json",
+    		success:function(result){
+    			$('tr').eq(0).nextAll().remove();
+    			$.each(result, function(result,item) {
+    				var con ="";
+    				con +='<tr><td></td><td>'+item.id+'</td>';
+    				con +='<td>'+item.type+'</td><td>'+item.collectorId+'</td>'
+    				con +='<td>'+item.gmtCreate+'</td><td>'+item.price+'</td>'
+    				con +='<td>'+item.status+'</td><td>'+item.brief+'</td>'
+    				con +='<td><a href="business_look.html" id="'+item.id+'"><div class="look1">查看</div></a></td></tr>'
+					$('#table_list').append(con);
+    				
+    			});
+    			
+    		},
+    		error:function(){
+    			
+    		}
+		});
+		$(".look1").on("click",function(){
+			sessionStorage.setItem("bussinessID",$(this).attr("id"));
+		})
+			
+		});
+	</script>
+</html>

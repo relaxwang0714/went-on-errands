@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.mapper.EvaluateMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.model.Evaluate">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="business_id" jdbcType="BIGINT" property="businessId" />
+    <result column="collector_id" jdbcType="BIGINT" property="collectorId" />
+    <result column="evaluate_text" jdbcType="VARCHAR" property="evaluateText" />
+    <result column="evaluate" jdbcType="DECIMAL" property="evaluate" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="repeat" jdbcType="VARCHAR" property="repeat" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, business_id, collector_id, evaluate_text, evaluate, gmt_create, gmt_modified, 
+    'repeat'
+  </sql>
+  <select id="search" parameterType="com.wzh.entity.EvaluatePojo" resultMap="BaseResultMap">
+    select  *
+    from evaluate
+    <where>
+    	<if test="userId!=null and userId !=0">
+    	and user_id =#{userId,jdbcType=BIGINT}
+    	</if>
+    	<if test="collectorId!=null and collectorId !=0">
+    	and collector_id =#{collectorId,jdbcType=BIGINT}
+    	</if>
+     	<if test="time1 != null and time1 != '' ">
+       and gmt_create > #{time1,jdbcType=TIMESTAMP}
+      	</if>
+      	<if test="time2 != null and time1 != '' ">
+      and gmt_create > #{time2,jdbcType=TIMESTAMP}
+      	</if>
+    </where>
+  </select>
+   <select id="searchAll" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from evaluate
+    
+  </select>
+  <select id="selectByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from evaluate
+    where user_id = #{userid,jdbcType=BIGINT}
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from evaluate
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from evaluate
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wzh.model.Evaluate">
+    insert into evaluate (id, user_id, business_id, 
+      collector_id, evaluate_text, evaluate, 
+      gmt_create, gmt_modified, repeat
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{businessId,jdbcType=BIGINT}, 
+      #{collectorId,jdbcType=BIGINT}, #{evaluateText,jdbcType=VARCHAR}, #{evaluate,jdbcType=DECIMAL}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, #{repeat,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzh.model.Evaluate">
+    insert into evaluate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="businessId != null">
+        business_id,
+      </if>
+      <if test="collectorId != null">
+        collector_id,
+      </if>
+      <if test="evaluateText != null">
+        evaluate_text,
+      </if>
+      <if test="evaluate != null">
+        evaluate,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="repeat != null">
+        repeat,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="businessId != null">
+        #{businessId,jdbcType=BIGINT},
+      </if>
+      <if test="collectorId != null">
+        #{collectorId,jdbcType=BIGINT},
+      </if>
+      <if test="evaluateText != null">
+        #{evaluateText,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluate != null">
+        #{evaluate,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repeat != null">
+        #{repeat,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.model.Evaluate">
+    update evaluate
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="businessId != null">
+        business_id = #{businessId,jdbcType=BIGINT},
+      </if>
+      <if test="collectorId != null">
+        collector_id = #{collectorId,jdbcType=BIGINT},
+      </if>
+      <if test="evaluateText != null">
+        evaluate_text = #{evaluateText,jdbcType=VARCHAR},
+      </if>
+      <if test="evaluate != null">
+        evaluate = #{evaluate,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="repeat != null">
+        repeat = #{repeat,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.model.Evaluate">
+    update evaluate
+    set user_id = #{userId,jdbcType=BIGINT},
+      business_id = #{businessId,jdbcType=BIGINT},
+      collector_id = #{collectorId,jdbcType=BIGINT},
+      evaluate_text = #{evaluateText,jdbcType=VARCHAR},
+      evaluate = #{evaluate,jdbcType=DECIMAL},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      repeat = #{repeat,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

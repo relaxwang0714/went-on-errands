@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    	<script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    	<script src="http://webapi.amap.com/maps?v=1.4.2&key=a3f98bf4d8fbcd97b21afa0f10c9aacb"></script>
+    	<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+		<script src="js/jquery.js"></script>
+	</head>
+	<body>
+		<div id="base_top">
+			<div class="base_top_left">
+				<div class="title">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>城市分布</b>
+				</div>
+				<div style="width: 100%;height: 50px;margin-top:20px;">
+					<input type="text" class="base_title" placeholder="&nbsp;&nbsp;搜索地区">
+					<input type="submit" class="brush_7" value="">
+				</div>
+				
+				<!--地区-->
+				<div class="base_place">
+					<div class="place_name">广州</div>
+					<div style="width: 300px;height: 15px;float: left;margin-top:14px;border-radius: 6px;background-color: #ffc600;"></div>
+					<div class="num">
+						12
+					</div>
+				</div>
+				<div class="base_place">
+					<div class="place_name">深圳</div>
+					<div style="width: 250px;height: 15px;float: left;margin-top:14px;border-radius: 6px;background-color: #ffc600;"></div>
+					<div class="num">
+						10
+					</div>
+				</div>
+				<div class="base_place">
+					<div class="place_name">珠海</div>
+					<div style="width: 200px;height: 15px;float: left;margin-top:14px;border-radius: 6px;background-color: #ffc600;"></div>
+					<div class="num">
+						8
+					</div>
+				</div>
+				<div class="base_place">
+					<div class="place_name">北京</div>
+					<div style="width: 175px;height: 15px;float: left;margin-top:14px;border-radius: 6px;background-color: #ffc600;"></div>
+					<div class="num">
+						7
+					</div>
+				</div>
+				<div class="base_place">
+					<div class="place_name">上海</div>
+					<div style="width: 75px;height: 15px;float: left;margin-top:14px;border-radius: 6px;background-color: #ffc600;"></div>
+					<div class="num">
+						2
+					</div>
+				</div>
+				<div class="base_place">
+					<div class="place_name">浙江</div>
+					<div style="width: 275px;height: 15px;float: left;margin-top:14px;border-radius: 6px;background-color: #ffc600;"></div>
+					<div class="num">
+						11
+					</div>
+				</div>
+			</div>
+			
+			<!--地图-->
+			<!--<div id="boder2"></div>-->
+			<div id="map">
+				<div id="container">
+					
+				</div>
+				
+			</div>
+		</div>
+		
+		<div id="base_con">
+			<table	 cellspacing="0">
+				<tr class="t_1" style="height: 80px;">
+					<td class="td_title">城市编号</td>
+					<td class="td_font">&nbsp;&nbsp;员工数量</td>
+					<td class="td_font">&nbsp;&nbsp;城市负责人</td>
+					<td class="td_font">&nbsp;&nbsp;负责人电话</td>
+					<td class="td_font_2">&nbsp;&nbsp;基地地址</td>
+				</tr>
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_2">  
+		           <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr> 
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+		        <tr class="t_2">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr> 
+		        <tr class="t_1">  
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		            <td></td>
+		        </tr>  
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">
+/***************************************
+由于Chrome、IOS10等已不再支持非安全域的浏览器定位请求，为保证定位成功率和精度，请尽快升级您的站点到HTTPS。
+***************************************/
+    var map, geolocation;
+    //加载地图，调用浏览器定位服务
+    map = new AMap.Map('container', {
+        resizeEnable: true
+    });
+    map.plugin('AMap.Geolocation', function() {
+        geolocation = new AMap.Geolocation({
+            enableHighAccuracy: true,//是否使用高精度定位，默认:true
+            timeout: 10000,          //超过10秒后停止定位，默认：无穷大
+            buttonOffset: new AMap.Pixel(10, 20),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+            zoomToAccuracy: true,      //定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+            buttonPosition:'RB'
+        });
+        map.addControl(geolocation);
+        geolocation.getCurrentPosition();
+        AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
+        AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+    });
+    //解析定位结果
+    function onComplete(data) {
+        var str=['定位成功'];
+        str.push('经度：' + data.position.getLng());
+        str.push('纬度：' + data.position.getLat());
+        if(data.accuracy){
+             str.push('精度：' + data.accuracy + ' 米');
+        }//如为IP精确定位结果则没有精度信息
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('tip').innerHTML = str.join('<br>');
+    }
+    //解析定位错误信息
+    function onError(data) {
+        document.getElementById('tip').innerHTML = '定位失败';
+    }
+</script>
+</html>

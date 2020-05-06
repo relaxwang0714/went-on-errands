@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzh.mapper.HistoryMapper">
+  <resultMap id="BaseResultMap" type="com.wzh.model.History">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="success" jdbcType="INTEGER" property="success" />
+    <result column="fail" jdbcType="INTEGER" property="fail" />
+    <result column="income" jdbcType="INTEGER" property="income" />
+    <result column="expend" jdbcType="INTEGER" property="expend" />
+    <result column="business" jdbcType="INTEGER" property="business" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <resultMap type="com.wzh.entity.HistoryPojo" id="HistoryPojo">
+  	<result column="SUM(success)" jdbcType="INTEGER" property="success" />
+    <result column="SUM(fail)" jdbcType="INTEGER" property="fail" />
+    <result column="SUM(business)" jdbcType="INTEGER" property="business" />
+    <result column="YEAR(gmt_create)" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <resultMap type="com.wzh.entity.MoneyPojo" id="MoneyPojo">
+  	<result column="SUM(income)" jdbcType="INTEGER" property="income" />
+    <result column="SUM(expend)" jdbcType="INTEGER" property="expend" />
+    <result column="MONTH(gmt_create)" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, success, fail, income, expend, business, gmt_create, gmt_modified
+  </sql>
+  <select id="searchMoney"  resultMap="MoneyPojo">
+    SELECT SUM(income),SUM(expend),MONTH(gmt_create) FROM history
+GROUP BY MONTH(gmt_create) ORDER BY MONTH(gmt_create) DESC LIMIT 12
+  </select>
+
+  <select id="searchByYear"  resultMap="HistoryPojo">
+    SELECT SUM(business),SUM(success),SUM(fail),YEAR(gmt_create) FROM history
+GROUP BY YEAR(gmt_create) ORDER BY YEAR(gmt_create)  LIMIT 5
+  </select>
+  <select id="searchByDesc"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from history
+    order by gmt_create DESC LIMIT 6
+  </select>
+   <select id="selectWeek"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from history
+    where WEEK(gmt_create) = WEEK(now())
+    order by gmt_create 
+  </select>
+  <!-- 取当前日期 -->
+   <select id="selectCurrent"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from history
+    where DATE(gmt_create) = CURDATE()
+    LIMIT 1
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from history
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from history
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wzh.model.History">
+    insert into history (id, success, fail, 
+      income, expend, business, 
+      gmt_create, gmt_modified)
+    values (#{id,jdbcType=INTEGER}, #{success,jdbcType=INTEGER}, #{fail,jdbcType=INTEGER}, 
+      #{income,jdbcType=INTEGER}, #{expend,jdbcType=INTEGER}, #{business,jdbcType=INTEGER}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wzh.model.History">
+    insert into history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="success != null">
+        success,
+      </if>
+      <if test="fail != null">
+        fail,
+      </if>
+      <if test="income != null">
+        income,
+      </if>
+      <if test="expend != null">
+        expend,
+      </if>
+      <if test="business != null">
+        business,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="success != null">
+        #{success,jdbcType=INTEGER},
+      </if>
+      <if test="fail != null">
+        #{fail,jdbcType=INTEGER},
+      </if>
+      <if test="income != null">
+        #{income,jdbcType=INTEGER},
+      </if>
+      <if test="expend != null">
+        #{expend,jdbcType=INTEGER},
+      </if>
+      <if test="business != null">
+        #{business,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wzh.model.History">
+    update history
+    <set>
+      <if test="success != null">
+        success = #{success,jdbcType=INTEGER},
+      </if>
+      <if test="fail != null">
+        fail = #{fail,jdbcType=INTEGER},
+      </if>
+      <if test="income != null">
+        income = #{income,jdbcType=INTEGER},
+      </if>
+      <if test="expend != null">
+        expend = #{expend,jdbcType=INTEGER},
+      </if>
+      <if test="business != null">
+        business = #{business,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wzh.model.History">
+    update history
+    set success = #{success,jdbcType=INTEGER},
+      fail = #{fail,jdbcType=INTEGER},
+      income = #{income,jdbcType=INTEGER},
+      expend = #{expend,jdbcType=INTEGER},
+      business = #{business,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/user_list.css" />
+		<title></title>
+		<style>
+			.look1{
+				width:55px;
+				height: 23px;
+				background-color: #33AAFF;
+				text-align: center;
+				line-height: 23px;
+				color: white;
+				margin-top: 5px;
+			}
+			.look2{
+				width:55px;
+				height: 23px;
+				background-color: #CC3300;
+				text-align: center;
+				line-height: 23px;
+				color: white;
+				margin-top: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<table border="1" cellspacing="20" id="user_list"> 
+			<th>
+				<td class="th_font" style="padding-left: 50px;">配送员</td>
+				<td class="th_font">配送员ID</td>
+				<td class="th_font">联系号码</td>
+				<td class="th_font">在线状态</td>
+				<td class="th_font">成交订单数</td>
+				<td class="th_font">收入</td>
+				<td class="th_font" style="padding-left: 10px;">详情</td>
+			</th>
+	       
+	        
+	    </table>  
+		
+		<script type="text/javascript"  
+        src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>  
+  
+    <script type="text/javascript">  
+    	$(document).ready(function(){
+    	var collectorName =sessionStorage.getItem("collectorName");
+        var collectorId =sessionStorage.getItem("collectorId");
+        var phone =sessionStorage.getItem("phone");	
+    	var collector ={ "collectorName":collectorName,
+    				"id":collectorId,
+    				"phone":phone
+    			}
+
+    	$.ajax({
+    		type:"post",
+    		url:"collector/search",
+    		async:true,
+    		contentType : 'application/json;charset=UTF-8',
+    		data:JSON.stringify(collector),
+    		dataType: "json",
+    		success:function(result){
+    			$('tr').eq(0).nextAll().remove();
+    			$.each(result, function(index,item){	
+    			var con ='';
+    			con+='<tr> <td class="tr_input"><input type="checkbox" /></td>'
+	            con+='<td class="tr_td">'+item.collectorName+'</td> '
+	            con+='<td>'+item.id+'</td>  <td>'+item.phone+'</td><td>'+item.isWork+'</td><td>'+item.success+'</td>'
+	            con+='<td>'+item.pay+'</td><td><a href="peisongyuaninfo.html" target="con" id="look"><div class="look1">查看</div></a><a target="con" id="delete"><div class="look2">删除</div></a></td>'
+	        	con+='</tr>'
+    			$('#user_list').append(con);
+    			});
+    		},
+    		error:function(){
+    			
+    		}
+    		
+    	});
+
+    	});
+
+    	//划重点，需要选择父元素，父元素是已经存在的那种
+    	$('table').on('click','#look',function(){
+        	var id =$(this).parent().siblings().eq(2).text();
+        	sessionStorage.setItem("peisongyuanId",id)
+        })
+         $('table').on('click','#delete',function(){
+        	$(this).parent().parent().hide();
+        })
+        //checkbox 全选/取消全选  
+        var isCheckAll = false;  
+        function swapCheck() {  
+            if (isCheckAll) {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = false;  
+                });  
+                isCheckAll = false;  
+            } else {  
+                $("input[type='checkbox']").each(function() {  
+                    this.checked = true;  
+                });  
+                isCheckAll = true;  
+            }  
+        }  
+ 
+    </script>  
+	</body>
+</html>

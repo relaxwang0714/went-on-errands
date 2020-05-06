@@ -1,0 +1,28 @@
+	* {
+    padding: 0px;
+    margin: 0px;
+	}
+	a{
+		text-decoration: none;
+	}
+	table,th,tr,td{
+		border: none;
+	}
+	table{
+		margin-top: 20px;
+		margin-left: 18px;
+	}
+	.th_font{
+		color: #D3D4D3;
+		width: 270px;
+	}
+	.tr_input input{
+		width: 18px;
+		height: 18px;
+		-webkit-appearance:none;
+		background-color: #B7B7BA;
+	}
+	.tr_input input:checked{-webkit-appearance:checkbox;background-color: #B7B7BA;}
+	.tr_td{
+		padding-left: 50px;
+	}

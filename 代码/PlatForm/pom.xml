@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.wzh</groupId>
+  <artifactId>springcloud</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>cloudtest</name>
+  <packaging>jar</packaging>
+  <!-- 父类继承一定要加 -->
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-parent</artifactId>
+  	<version>1.5.1.RELEASE</version>
+  </parent>
+  <!-- 作用于打包jar包 -->
+  <build>
+	  <!--用于打包src下面的xml资源文件 -->
+	  <resources>
+		  <resource>
+			  <directory>src/main/java</directory>
+			  <includes>
+				  <include>**/*.xml</include>
+			  </includes>
+			  <filtering>false</filtering>
+		  </resource>
+	  </resources>
+  	<plugins>
+  		<plugin>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  			</configuration>
+     	 </plugin>
+     	 <plugin>
+		 	<groupId>org.springframework.boot</groupId>
+		 	<artifactId>spring-boot-maven-plugin</artifactId>
+		 	<executions>
+         		<execution>
+         			<goals>
+         				<goal>repackage</goal>
+         			</goals>
+         		</execution>
+        	</executions>
+	     </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+  <!-- mybaits jdbc  -->
+  	<dependency>
+    	<groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    <!-- spring boot 核心依赖 -->
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-starter-web</artifactId>
+  		<version>1.5.1.RELEASE</version>
+  	</dependency>
+  	<dependency>  
+        <groupId>org.springframework.boot</groupId>  
+        <artifactId>spring-boot-starter-test</artifactId>  
+        <scope>test</scope>  
+        </dependency> 
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+    <!-- jackson 依赖 --> 
+     <dependency>  
+    	<groupId>com.fasterxml.jackson.core</groupId>  
+    	<artifactId>jackson-core</artifactId>   
+    </dependency>  
+    <dependency>
+    	<groupId>com.fasterxml.jackson.core</groupId>  
+    	<artifactId>jackson-databind</artifactId>  
+	</dependency>  
+	<!-- Spring Boot Redis 依赖 -->
+	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+	</dependency>
+	<!-- Spring Boot Cache 依赖 -->
+	<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+	</dependency>
+	<!-- 任务调度quartz -->
+	<dependency>
+		<groupId>org.quartz-scheduler</groupId>
+		<artifactId>quartz</artifactId>
+		<version>2.2.3</version>
+		</dependency>
+	<dependency>
+		<groupId>org.quartz-scheduler</groupId>
+		<artifactId>quartz-jobs</artifactId>
+		<version>2.2.3</version>
+	</dependency>
+	<!-- poi -->
+	<dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+	<dependency>
+            <groupId>org.apache.poi</groupId>
+           <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+    </dependency>
+	  <dependency>
+	  <groupId>org.apache.commons</groupId>
+	  <artifactId>commons-lang3</artifactId>
+	  <version>3.3</version>
+  </dependency>
+	  <dependency>
+		  <groupId>net.minidev</groupId>
+		  <artifactId>json-smart</artifactId>
+		  <version>2.3</version>
+	  </dependency>
+    <!-- thymeleaf 模板依赖 -->
+   	<dependency>
+      	<groupId>org.springframework.boot</groupId>
+      	<artifactId>spring-boot-starter-thymeleaf</artifactId>
+   	</dependency>
+   	<!-- spring cloud actour -->
+    <dependency>
+  		<groupId>org.springframework.boot</groupId>
+ 		<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	<!-- spring cloud eureka -->
+	<dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-eureka</artifactId>
+    </dependency>
+    <!-- spring cloud feign -->
+	<dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-feign</artifactId>
+    </dependency>
+      <!-- spring cloud hystrix -->
+    <dependency>
+    	<groupId>org.springframework.cloud</groupId>
+    	<artifactId>spring-cloud-starter-hystrix</artifactId>
+    </dependency>
+   </dependencies>
+    <!-- spring cloud 核心依赖  这个版本可能需要修改的-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <!-- Edgware.RELEASE -->
+                <version>Camden.SR6</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>   
+        </dependencies>
+    </dependencyManagement>
+</project>

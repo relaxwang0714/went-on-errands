@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: micro-provider-business  
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.79.42.249:3306/paotui?useUnicode=true&&characterEncoding=utf8&&useSSL=false
+    username: root
+    password: uAiqwVwjJ8-i
+  thymeleaf:
+    cache: false
+    content-type: text/html
+    mode: LEGACYHTML5   
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 0
+    pool:
+      max-active: 8 
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+eureka: 
+  client:
+    service-url:
+      daefaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8811
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*Mapper.xml 
+    

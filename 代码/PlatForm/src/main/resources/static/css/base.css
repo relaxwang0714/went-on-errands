@@ -1,0 +1,127 @@
+	* {
+	    padding: 0px;
+	    margin: 0px;
+	}
+	
+	#base_top{
+		position: relative;
+		width: 1400px;
+		height: 430px;
+		margin-left: 40px;
+		/*background-color: red;*/
+	}
+	
+	/*上左区域*/
+	.base_top_left{
+		position: relative;
+		width: 500px;
+		height: 430px;
+		float: left;
+		/*background-color: yellow;*/
+	}
+	.base_top_left .title{
+		width: 100%;
+		height: 50px;
+		line-height: 50px;
+		font-family: "微软雅黑";
+		background-color: #f6f6f6;
+	}
+	.base_title{
+		position: absolute;
+		top: 75px;
+		left: 10px;
+		width: 250px;
+		height: 34px;
+		letter-spacing: 1px;
+		word-spacing: 2px;
+		border: 1px solid #eaeaea;
+		border-radius: 6px;
+	}
+	.brush_7{
+	position: absolute;
+	top: 75px;
+	left: 250px;
+	width: 70px;
+	height: 36px;
+	background-color: #354053;
+	border: 1px solid black;
+	background-image: url(../img/search2.png);
+	background-size: 56px 28px;
+	background-position-x: 5px;
+	background-position-y: 4px;
+	}
+	.brush_7:hover{
+		cursor: pointer;
+	}
+	.brush_7:active{
+		background-color: black;
+	}
+	.base_place{
+		width: 100%;
+		height: 40px;
+		background-color: white;
+	}
+	.place_name{
+		width: 50px;
+		float: left;
+		line-height: 40px;
+		margin-left: 12px;
+		color: #666666;
+		font-family: "微软雅黑";
+	}
+	.num{
+		float: right;
+		margin-top:8px;
+		margin-right: 50px;
+		font-size: 19px;
+		color: #ffc600;
+	}
+	
+	/*上右区域*/
+	/*地图*/
+	#map{
+		position: absolute;
+		width: 895px;
+		height: 430px;
+		top: 5.8px;
+		left: 500px;
+		background-color: white;
+		/*background-color: black;*/
+	}
+	#container{
+		overflow: hidden;
+		width: 500px;
+		height: 430px;
+		margin-top: -5px;
+		margin-left: 5px;
+	}
+	
+	#base_con{
+		width: 1340px;
+		height: 390px;
+		margin-left:40px;
+		background-color: white;
+	}
+	.t_1{
+		background-color: white;
+	}
+	.t_2{
+		background-color: #f9f9f9;
+	}
+	.td_font{
+		width: 150px;
+		padding-left: 120px;
+	}
+	.td_font_2{
+		width: 190px;
+		padding-left: 120px;
+	}
+	.td_title{
+		width: 120px;
+		padding-left: 50px;
+	}
+	tr td{
+		width: 85px;
+		height: 50px;	
+		line-height: 50px;
+	}

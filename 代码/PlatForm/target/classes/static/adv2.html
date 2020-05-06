@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/add_waste1.css" />
+		<script src="layui/layui.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all"/>
+</head>
+	<body>
+	<form class="form-horizontal" enctype="multipart/form-data"  method="POST" id="form1" action="upload/guanggao" >
+		<div class="background"></div>
+		<!--<div id="add_waste_1">
+			<div class="add_left">
+				废品图片
+			</div>
+			<div class="add_right">
+				
+					<div class="add_right_top">
+						<img id="pic" src="/img/add.png"  />
+						<input type="file"  id="filem" name="file1" onchange="xmTanUploadImg(this)"/>
+					</div>
+				</a>
+				<div class="add_right_bottom">
+					建议尺寸：&nbsp;800x800;&nbsp;&nbsp;支持jpg,png等格式
+				</div>
+			</div>
+		</div>-->
+		<div class="add_left">
+				广告轮播图
+			</div>
+		<div id="shangchuan">
+            <p>
+                图片上传前预览：<input type="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*" name="file1"/>
+                <input type="button" value="隐藏图片" onclick="document.getElementById('xmTanImg').style.display = 'none';"/>
+                <input type="button" value="显示图片" onclick="document.getElementById('xmTanImg').style.display = 'block';"/>
+            </p>
+            <img id="xmTanImg"/>
+            <div id="xmTanDiv"></div>
+        </div>
+		
+		<div id="add_waste_3">
+			<div class="add_left_2">
+				序号
+			</div>
+			<div class="add_right">
+				<select name="number" lay-verify="" value="" placeholder="请选择设备标签">
+					<option value="">&nbsp;&nbsp;&nbsp;选择轮播图序号</option>
+					<option value="1">&nbsp;&nbsp;&nbsp;第一张</option>
+					<option value="2">&nbsp;&nbsp;&nbsp;第二张</option>
+					<option value="3">&nbsp;&nbsp;&nbsp;第三张</option>
+					<option value="4">&nbsp;&nbsp;&nbsp;第四张</option>
+
+				</select> 
+			</div>
+		</div>
+		
+		<!--<div id="add_waste_2">
+			<div class="add_left_2">
+				标题
+			</div>
+			<div class="add_right">
+				<input type="text" name="GoodsName">
+			</div>
+		</div>-->
+		
+		<!--<div id="add_waste_4">
+			<div class="add_left_2">
+				废品积分
+			</div>
+			<div class="add_right">
+				<input type="text" class="add_con" name="Score">
+			</div>
+		</div>
+		<div id="add_waste_4">
+			<div class="add_left_2">
+				废品金额
+			</div>
+			<div class="add_right">
+				<input type="text" class="add_con" name="Price">
+			</div>
+		</div>-->
+		
+		<div id="add_waste_6">
+			<div class="add_left_2">
+				备注
+			</div>
+			<div class="add_right">
+				<input type="text" class="add_con_2"name="Brief">
+			</div>
+		</div>
+		
+		<button  class="brush_7"type="submit">确定</button>
+		</form>
+	</body>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">            
+            //判断浏览器是否支持FileReader接口
+            if (typeof FileReader == 'undefined') {
+                document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+                //使选择控件不可操作
+                document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+            }
+//          $('#form1').submit(function(e){
+//          	alert('提交成功');
+//          	return false; 
+//          });
+			
+            //选择图片，马上预览
+            function xmTanUploadImg(obj) {
+                var file = obj.files[0];
+                
+                console.log(obj);console.log(file);
+                console.log("file.size = " + file.size);  //file.size 单位为byte
+
+                var reader = new FileReader();
+
+                //读取文件过程方法
+                reader.onloadstart = function (e) {
+                    console.log("开始读取....");
+                }
+                reader.onprogress = function (e) {
+                    console.log("正在读取中....");
+                }
+                reader.onabort = function (e) {
+                    console.log("中断读取....");
+                }
+                reader.onerror = function (e) {
+                    console.log("读取异常....");
+                }
+                reader.onload = function (e) {
+                    console.log("成功读取....");
+
+                    var img = document.getElementById("xmTanImg");
+                    img.src = e.target.result;
+                    //或者 img.src = this.result;  //e.target == this
+                }
+
+                reader.readAsDataURL(file)
+            }
+        </script>
+</html>

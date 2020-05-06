@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<link rel="stylesheet" href="css/top_4.css" />-->
+		<link rel="stylesheet" href="css/moneyrole.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+		$(function(){
+				//加鼠标单击事件
+				$(".top_nav1").click(function(){
+		//			让当前被点击的li背景变颜色,兄弟元素不变颜色
+					$(this).css({'border-bottom':'4px solid #364154'});
+					$(".top_nav2").css({'border-bottom':'none'});
+					$(".top_nav3").css({'border-bottom':'none'});
+				})
+				
+				$(".top_nav2").click(function(){
+		//			让当前被点击的背景变颜色
+					$(this).css({'border-bottom':'4px solid #364154'});
+					$(".top_nav1").css({'border-bottom':'none'});
+					$(".top_nav3").css({'border-bottom':'none'});
+				})
+				
+				$(".top_nav3").click(function(){
+					
+					$(this).css({'border-bottom':'4px solid #364154'});
+					$(".top_nav2").css({'border-bottom':'none'});
+					$(".top_nav1").css({'border-bottom':'none'});
+				})
+				
+			
+			
+		})	
+		
+		</script>
+	</head>
+	<body>
+		<div class="header">
+                <ul>
+                    <li><a href="shopping_list.html" target="con_3"><div class="top_nav1"><b>帮买</b></div></a></li>
+                    <!--<li><a href="#"><div class="top_nav2"><b>成功的订单</b></div></a></li>
+                    <li><a href="#"><div class="top_nav3"><b>被取消的订单</b></div></a></li>-->
+                    <li><a href="#"><div class="top_nav4"><b>帮送</b></div></a></li>
+                    <li><a href="#"><div class="top_nav5"><b>帮取货</b></div></a></li>
+                  <!--  <li><a href="#"><div class="top_nav6"><b>三个月前订单</b></div></a></li>-->
+                    <li class="move"></li>
+                </ul>
+        </div>
+        <div id="wait_top">
+			<div class="top_left">收费模式</div>
+			<div class="top_right">
+				<a href="#" id="button1"><div class="top_right_1">固定跑腿费</div></a>
+				<a href="#"id="button2"><div class="top_right_2">按距离收费</div></a>
+				<!--<a href="#"><div class="top_right_3">批量删除</div></a>-->
+			</div>
+		</div>
+		<div id="guding">
+     <div id="add_waste_2">
+			<div class="add_left_2">
+				固定跑腿费
+			</div>
+			<div class="add_right">
+				<input type="number" name="name">
+			</div>
+			</div>
+			<div id="add_waste_2">
+			<div class="add_left_2">
+				最大公里数
+			</div>
+			<div class="add_right">
+				<input type="number" name="name">
+			</div>
+			</div>
+			</div>
+			<div id="distance" style="display: none;">
+				<button type="button" class="btn btn-info" id="add">添加不同距离</button>
+     		<table class="table table-bordered">
+			<tr>
+				<td><form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">配送距离从</label>
+    <input class="form-control" type="number" value="0" id="start" readonly>
+    <mark>公里</mark> 
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">到</label>
+    <input type="number" class="form-control" id="finish" placeholder="输入距离" value="5">
+    <mark>公里</mark> 
+    <input type="number" class="form-control" id="exampleInputEmail2" placeholder="输入金额" value="10">
+    <mark>元</mark>
+  </div>
+  <button type="button" class="btn btn-default" id="delete" onclick="copyText()">删除</button>
+</form>
+				</td>		
+			</tr>
+			<tr>
+				<td><form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">配送距离从</label>
+    <input class="form-control" type="number" value="5" id="start" readonly>
+    <mark>公里</mark> 
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">到</label>
+    <input type="number" class="form-control" id="finish" placeholder="输入距离" value="10">
+    <mark>公里</mark> 
+    <input type="number" class="form-control" id="exampleInputEmail2" placeholder="输入金额" value="20">
+    <mark>元</mark>
+  </div>
+  <button type="button" class="btn btn-default" id="delete" onclick="copyText()">删除</button>
+</form>
+				</td>		
+			</tr>
+			<tr>
+				<td><form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">配送距离从</label>
+    <input class="form-control" type="number" value="10" id="start" readonly>
+    <mark>公里</mark> 
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">到</label>
+    <input type="number" class="form-control" id="finish" placeholder="输入距离" value="15">
+    <mark>公里</mark> 
+    <input type="number" class="form-control" id="exampleInputEmail2" placeholder="输入金额" value="30">
+    <mark>元</mark>
+  </div>
+  <button type="button" class="btn btn-default" id="delete" onclick="copyText()">删除</button>
+</form>
+				</td>		
+			</tr>
+			<tr>
+				<td><form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">配送距离从</label>
+    <input class="form-control" type="number" value="15" id="start" readonly>
+    <mark>公里</mark> 
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">到</label>
+    <input type="number" class="form-control" id="finish" placeholder="输入距离" value="30">
+    <mark>公里</mark> 
+    <input type="number" class="form-control" id="exampleInputEmail2" placeholder="输入金额" value="50">
+    <mark>元</mark>
+  </div>
+  <button type="button" class="btn btn-default" id="delete" onclick="copyText()">删除</button>
+</form>
+				</td>		
+			</tr>
+				</table>
+				<button type="button" class="btn btn-primary" id="submit">提交</button>
+			</div>
+		
+		<!--<div class="background"></div>-->
+		
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+//			  			$('#delete').on('click',function(){
+//					alert("123")
+//					$(this).parents('tr').remove();
+//					//$(this).parent().parent().parent().remove();
+//				
+//				})
+				function copyText(){
+					$('#delete').parents('tr').remove();
+					//$(this).parent().parent().parent().remove();
+					}
+			$(document).ready(function(){
+			$("#add").on('click',function(){
+				var con="";
+				con +='	<tr><td><form class="form-inline"><div class="form-group"><label for="exampleInputName2">配送距离从</label><input class="form-control" type="number" value="0"  readonly>'
+    			con +='<mark>公里</mark></div><div class="form-group"><label for="exampleInputEmail2">到</label>'
+    			con +='<input type="number" class="form-control" id="exampleInputEmail2" placeholder="输入距离">'
+    			con +='<mark>公里</mark> <input type="number" class="form-control" id="exampleInputEmail2" placeholder="输入金额"><mark>元</mark>'
+    			con +='</div><button type="button" class="btn btn-default" id="delete" onclick="copyText()">删除</button></form></td></tr>'
+    			$('tbody').append(con);
+    			
+
+
+			})
+			$('#submit').on('click',function(){
+				var list = new Array();
+				var moneyrule ={"start":$('#start').val(),
+				"finish":$('#finish').val()		
+			}				
+				list.push(moneyrule);				
+				$.ajax({
+					type:"post",
+					url:"moneyrole/insert",
+					async:true,
+					contentType : 'application/json;charset=UTF-8',
+    				data:JSON.stringify(list),
+    				success:function(result){
+    					
+    				}
+				});
+			})
+			
+			$('#button2').on('click',function(){
+				$('#guding').css("display","none");
+				$('#distance').css("display","block");
+			})
+			$('#button1').on('click',function(){
+				$('#guding').css("display","block");
+				$('#distance').css("display","none");
+			})
+			
+			})
+			
+		</script>
+	</body>
+</html>
