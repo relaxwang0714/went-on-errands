@@ -127,6 +127,33 @@
       	<groupId>org.springframework.boot</groupId>
       	<artifactId>spring-boot-starter-thymeleaf</artifactId>
    	</dependency>
+	  <!--shiro安全验证性框架 -->
+	  <dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-core</artifactId>
+		  <version>1.2.1</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-web</artifactId>
+		  <version>1.2.1</version>
+	  </dependency>
+	  <dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-ehcache</artifactId>
+		  <version>1.2.1</version>
+	  </dependency>
+	  <dependency>
+	  <groupId>org.apache.shiro</groupId>
+	  <artifactId>shiro-spring</artifactId>
+	  <version>1.2.1</version>
+	  </dependency>
+	  <!-- 数据库连接池框架-->
+	  <dependency>
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>druid</artifactId>
+		  <version>1.1.10</version>
+	  </dependency>
    	<!-- spring cloud actour -->
     <dependency>
   		<groupId>org.springframework.boot</groupId>
